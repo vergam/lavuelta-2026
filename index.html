@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="theme-color" content="#1A1A1A">
+<title>Fantasy Vuelta 2026</title>
+<script>
+const APP_VERSION="Vuelta26-v1";
+window.APP_VERSION='v28';</script>
+<style>
+:root{--jaune:#FFD700;--vert:#2E7D32;--rouge:#C62828;--bg:#FAFAF8;--bg2:#F2F1ED;--border:#E0DFD8;--text:#1A1A1A;--muted:#6B6B6B;--white:#FFFFFF;--r:10px;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+
+/* HEADER */
+header{background:var(--text);position:sticky;top:0;z-index:100;}
+.header-inner{max-width:960px;margin:0 auto;padding:12px 16px 0;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.header-left{display:flex;flex-direction:column;gap:2px;}
+.eyebrow{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--jaune);font-weight:500;}
+h1{font-size:18px;font-weight:700;color:white;letter-spacing:-.02em;}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.jerseys{display:flex;gap:6px;}
+.jersey{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
+.j-gc{background:var(--jaune);color:#7A5F00;}
+.j-munt{background:white;color:var(--rouge);border:2px solid var(--rouge);font-size:9px;}
+.j-sp{background:var(--vert);color:white;}
+.update-info{font-size:10px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:5px;}
+.update-dot{width:6px;height:6px;border-radius:50%;background:#4CAF50;flex-shrink:0;}
+.update-dot.old{background:#FF9800;}
+#update-text{max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* NAV */
+nav{background:var(--text);border-top:1px solid rgba(255,255,255,.1);}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-btn{background:none;border:none;color:rgba(255,255,255,.5);font-size:12px;font-weight:600;padding:10px 14px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;flex-shrink:0;}
+.nav-btn.active{color:white;border-bottom-color:var(--jaune);}
+
+/* MAIN */
+main{max-width:960px;margin:0 auto;padding:12px 12px 80px;}
+.screen{display:none;}
+.screen.active{display:block;}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:12px;}
+.card-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px;}
+
+/* TABS */
+.tab-row{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;}
+.tab-row::-webkit-scrollbar{display:none;}
+.tab{background:var(--bg2);border:1px solid var(--border);border-radius:7px;padding:7px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--muted);white-space:nowrap;flex-shrink:0;}
+.tab.active-gc{background:#FFF9C4;border-color:#FFD700;color:#7A5F00;}
+.tab.active-munt{background:#FFEBEE;border-color:#FFCDD2;color:var(--rouge);}
+.tab.active-sp{background:#E8F5E9;border-color:#C8E6C9;color:var(--vert);}
+
+/* TABLES - mobile first */
+.lb-table{width:100%;border-collapse:collapse;}
+.lb-table th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;text-align:left;padding:5px 8px;border-bottom:1px solid var(--border);}
+.lb-table th.r{text-align:right;}
+.lb-table td{padding:8px 8px;font-size:13px;border-bottom:1px solid var(--bg2);}
+.lb-table tr:last-child td{border-bottom:none;}
+.lb-table tr.clickable:active td{background:var(--bg2);}
+.pos-num{font-weight:700;color:var(--muted);font-size:14px;min-width:24px;display:inline-block;text-align:center;}
+.pos-num.p1{color:#B8860B;}
+.pos-num.p2{color:#707070;}
+.pos-num.p3{color:#8B4513;}
+.rider-in-pool{font-weight:600;color:var(--text);font-size:14px;}
+.rider-not-pool{font-weight:400;color:var(--muted);font-size:13px;}
+.pool-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:middle;}
+.pd-gc{background:var(--jaune);}
+.pd-munt{background:var(--rouge);}
+.pd-sp{background:var(--vert);}
+.team-name{font-size:11px;color:var(--muted);margin-top:1px;}
+.val-col{text-align:right;font-size:12px;color:var(--muted);}
+.pts-total{text-align:right;font-size:15px;font-weight:700;}
+.owner-pill{font-size:10px;font-weight:600;background:#E8F5E9;color:var(--vert);border-radius:20px;padding:1px 6px;margin-left:5px;}
+
+/* FANTASY TABLE - simplified for mobile */
+.fantasy-name{font-weight:700;font-size:14px;}
+.rider-mini-badges{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap;}
+.cat-badge{font-size:10px;font-weight:600;padding:2px 6px;border-radius:20px;}
+.b-gc{background:#FFF9C4;color:#7A5F00;}
+.b-munt{background:#FFEBEE;color:var(--rouge);}
+.b-sp{background:#E8F5E9;color:var(--vert);}
+.vic-btn{background:none;border:1px solid var(--border);border-radius:5px;padding:3px 8px;font-size:12px;cursor:pointer;color:var(--muted);}
+.vic-count{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#FFF9C4;color:#7A5F00;font-size:10px;font-weight:700;}
+.progress-bar{height:4px;background:var(--bg2);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--jaune);transition:width .3s;}
+
+/* DRAFT */
+.draft-filters{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;scrollbar-width:none;}
+.draft-filters::-webkit-scrollbar{display:none;}
+.draft-filter{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;color:var(--muted);white-space:nowrap;flex-shrink:0;}
+.draft-filter.active{background:var(--text);color:white;border-color:var(--text);}
+.draft-filter.f-gc.active{background:#7A5F00;border-color:#7A5F00;}
+.draft-filter.f-munt.active{background:var(--rouge);border-color:var(--rouge);}
+.draft-filter.f-sp.active{background:var(--vert);border-color:var(--vert);}
+.draft-search{border:1px solid var(--border);border-radius:20px;padding:7px 14px;font-size:14px;outline:none;background:var(--white);color:var(--text);width:100%;margin-bottom:12px;}
+.riders-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;}
+.rider-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:12px;cursor:pointer;}
+.rider-card:active{background:var(--bg2);}
+.rider-card.owned{border-color:#C8E6C9;background:#F9FFF9;}
+.rider-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;background:var(--bg2);}
+.rider-avatar-fallback{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;}
+.rider-card-name{font-size:12px;font-weight:700;line-height:1.3;margin-bottom:2px;}
+.rider-card-team{font-size:10px;color:var(--muted);margin-bottom:5px;}
+.rider-card-meta{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+.cat-pill{font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;}
+.cp-gc{background:#FFF9C4;color:#7A5F00;}
+.cp-munt{background:#FFEBEE;color:var(--rouge);}
+.cp-sp{background:#E8F5E9;color:var(--vert);}
+.owner-tag{font-size:10px;font-weight:600;color:var(--vert);background:#E8F5E9;border-radius:20px;padding:2px 6px;}
+.no-owner-tag{font-size:10px;color:var(--muted);}
+.val-badge{font-size:10px;font-weight:700;background:var(--text);color:var(--jaune);border-radius:4px;padding:2px 6px;}
+
+/* STAGES */
+.stages-list{display:flex;flex-direction:column;gap:5px;}
+.stage-row{display:grid;grid-template-columns:32px 1fr auto;gap:8px;align-items:center;padding:10px 10px;border-radius:8px;border:1px solid var(--border);background:var(--white);}
+.stage-row.done{background:var(--bg2);border-color:transparent;cursor:pointer;}
+.stage-row.done:active{background:var(--border);}
+.stage-row.next{border-color:var(--jaune);background:#FFFEF5;}
+.stage-row.upcoming{opacity:.6;}
+.stage-num-badge{background:var(--text);color:white;border-radius:4px;padding:3px 5px;font-size:10px;font-weight:700;text-align:center;}
+.stage-num-badge.done-badge{background:#888;}
+.stage-center{min-width:0;}
+.stage-name{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stage-date-type{display:flex;align-items:center;gap:5px;margin-top:2px;}
+.stage-date-sm{font-size:10px;color:var(--muted);}
+.stage-winner-mini{font-size:10px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.stage-winner-mini.in-pool{color:var(--vert);font-weight:600;}
+.stage-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px;}
+.type-pill{font-size:9px;font-weight:700;padding:2px 6px;border-radius:20px;white-space:nowrap;}
+.type-pla{background:#E3F2FD;color:#1565C0;}
+.type-munt{background:#FFEBEE;color:var(--rouge);}
+.type-cri{background:#F3E5F5;color:#6A1B9A;}
+.type-ondulat{background:#E8F5E9;color:var(--vert);}
+.stage-km{font-size:10px;color:var(--muted);}
+
+/* SETUP */
+.players-grid{display:grid;grid-template-columns:1fr;gap:10px;}
+.player-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px;}
+.player-card.configured{border-color:#C8E6C9;background:#F9FFF9;}
+.player-num{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px;}
+.player-card input[type=text]{width:100%;border:1px solid var(--border);border-radius:6px;padding:9px 10px;font-size:16px;margin-bottom:10px;background:var(--bg);color:var(--text);outline:none;}
+.rider-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.cat-label{font-size:11px;font-weight:600;padding:3px 8px;border-radius:20px;width:52px;text-align:center;flex-shrink:0;}
+.cat-label.gc{background:#FFF9C4;color:#7A5F00;}
+.cat-label.munt{background:#FFEBEE;color:var(--rouge);}
+.cat-label.sp{background:#E8F5E9;color:var(--vert);}
+.rider-row select{flex:1;min-width:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:1px solid var(--border);border-radius:6px;padding:9px 30px 9px 10px;font-size:14px;background-color:var(--bg);color:var(--text);outline:none;cursor:pointer;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M2 4l4 4 4-4z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;}
+.rider-row select:focus{border-color:var(--jaune);}
+.budget-bar{height:6px;background:var(--bg2);border-radius:3px;overflow:hidden;margin-top:4px;}
+.budget-fill{height:100%;border-radius:3px;transition:width .3s;}
+.budget-ok{background:var(--vert);}
+.budget-warn{background:#FF9800;}
+.budget-over{background:var(--rouge);}
+
+/* BUTTONS */
+.btn{border:1px solid var(--border);border-radius:7px;padding:11px 18px;font-size:14px;font-weight:600;cursor:pointer;}
+.btn-primary{background:var(--text);color:white;border-color:var(--text);width:100%;}
+.btn-sm{padding:7px 12px;font-size:12px;width:auto;}
+.btn-ghost{background:transparent;color:var(--muted);}
+.flex-end{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;}
+.alert{padding:10px 14px;border-radius:7px;font-size:13px;margin-bottom:12px;}
+.alert-info{background:#EFF6FF;color:#1E40AF;border:1px solid #BFDBFE;}
+.alert-success{background:#F0FDF4;color:#166534;border:1px solid #BBF7D0;}
+.alert-error{background:#FEF2F2;color:#991B1B;border:1px solid #FECACA;}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;justify-content:center;z-index:999;padding:0;}
+.modal-box{background:var(--white);border-radius:16px 16px 0 0;padding:20px 16px;width:100%;max-width:600px;max-height:88vh;overflow-y:auto;}
+.modal-handle{width:40px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 16px;}
+.modal-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:12px;}
+.modal-header h2{font-size:17px;font-weight:700;}
+.modal-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted);padding:0 4px;}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+.detail-card{border-radius:8px;padding:12px 8px;text-align:center;}
+.dc-gc{background:#FFF9C4;border:1px solid #FFD700;}
+.dc-munt{background:#FFEBEE;border:1px solid #FFCDD2;}
+.dc-sp{background:#E8F5E9;border:1px solid #C8E6C9;}
+.dc-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
+.dc-name{font-size:11px;font-weight:700;margin-bottom:3px;line-height:1.3;}
+.dc-pts{font-size:20px;font-weight:800;}
+.dc-pos{font-size:10px;color:var(--muted);}
+.total-row{background:var(--bg2);border-radius:8px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:700;margin-top:12px;}
+.rider-modal-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--border);flex-shrink:0;}
+.rider-modal-photo-fallback{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;border:3px solid var(--border);flex-shrink:0;}
+.wins-list{list-style:none;margin-top:4px;}
+.wins-list li{font-size:12px;padding:5px 0;border-bottom:1px solid var(--bg2);color:var(--muted);}
+.wins-list li:last-child{border-bottom:none;}
+.wins-list li::before{content:"🏆 ";font-size:11px;}
+.top3-list{list-style:none;}
+.top3-list li{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--bg2);font-size:14px;}
+.top3-list li:last-child{border-bottom:none;}
+.sw-table{width:100%;border-collapse:collapse;}
+.sw-table th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;text-align:left;padding:5px 8px;border-bottom:1px solid var(--border);}
+.sw-table td{padding:8px 8px;font-size:13px;border-bottom:1px solid var(--bg2);}
+.sw-table tr:last-child td{border-bottom:none;}
+.stage-num{background:var(--text);color:white;border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;}
+.in-pool-star{color:var(--jaune);font-size:13px;margin-left:3px;}
+.no-data{text-align:center;padding:40px 20px;color:var(--muted);font-size:14px;}
+.loading{text-align:center;padding:30px;color:var(--muted);font-size:13px;}
+.pin-input{width:100%;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:18px;letter-spacing:.2em;text-align:center;outline:none;margin:12px 0;}
+.stat-chip{display:inline-flex;align-items:center;gap:4px;background:var(--bg2);border-radius:6px;padding:4px 8px;font-size:12px;}
+
+/* RULES BUTTON + TABLE */
+.rules-btn{width:100%;background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:11px 14px;font-size:13px;font-weight:600;color:var(--text);cursor:pointer;margin-bottom:12px;text-align:left;display:flex;align-items:center;gap:6px;}
+.rules-btn:active{background:var(--bg2);}
+.rules-table{width:100%;border-collapse:collapse;margin-top:6px;}
+.rules-table th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;padding:5px 6px;border-bottom:1px solid var(--border);text-align:center;}
+.rules-table th:first-child{text-align:left;}
+.rules-table td{padding:6px;font-size:13px;border-bottom:1px solid var(--bg2);text-align:center;font-weight:600;}
+.rules-table td:first-child{text-align:left;color:var(--muted);font-weight:400;}
+.rules-table tr:last-child td{border-bottom:none;}
+.rules-section-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:16px 0 6px;}
+.rules-note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:6px;}
+
+/* OUT RIDER */
+.out-badge{font-size:10px;font-weight:700;background:#FEF2F2;color:#991B1B;border:1px solid #FECACA;border-radius:20px;padding:2px 7px;}
+.rider-card.is-out{opacity:.55;}
+.rider-card.is-out .rider-card-name{text-decoration:line-through;}
+
+/* STAGE PROFILE */
+.stage-profile-box{background:var(--bg2);border-radius:8px;padding:10px 8px 4px;margin-top:12px;}
+.stage-profile-box svg{width:100%;height:auto;display:block;}
+.profile-label{font-size:9px;color:var(--muted);display:flex;justify-content:space-between;padding:2px 4px 4px;}
+.climbs-list{list-style:none;margin-top:4px;}
+.climbs-list li{font-size:12px;padding:5px 0;border-bottom:1px solid var(--bg2);color:var(--muted);}
+.climbs-list li:last-child{border-bottom:none;}
+.climbs-list li::before{content:"⛰️ ";font-size:11px;}
+.route-summary{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+.ml-label{display:block;font-size:11px;font-weight:600;color:var(--muted);margin:10px 0 4px;}
+.ml-textarea{width:100%;min-height:70px;border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:13px;font-family:inherit;resize:vertical;box-sizing:border-box;}
+
+/* TABLET+ */
+@media(min-width:600px){
+  main{padding:20px 20px 40px;}
+  .header-inner{padding:16px 24px 0;}
+  h1{font-size:22px;}
+  .players-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}
+  .riders-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
+  .stage-row{grid-template-columns:36px 70px 1fr auto auto auto;gap:10px;}
+  .modal-bg{align-items:center;padding:20px;}
+  .modal-box{border-radius:14px;max-width:500px;}
+  .modal-handle{display:none;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="eyebrow">Fantasy</div>
+      <h1>Vuelta a España 2026</h1>
+    </div>
+    <div class="header-right">
+      <div class="jerseys">
+        <div class="jersey j-gc">G</div>
+        <div class="jersey j-munt">M</div>
+        <div class="jersey j-sp">S</div>
+      </div>
+      <div class="update-info" id="update-info" onclick="forceRefresh()" title="Clica per actualitzar ara" style="cursor:pointer;">
+        <div class="update-dot" id="update-dot"></div>
+        <span id="update-text">Carregant...</span>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <button class="nav-btn active" onclick="showScreen('fantasy',event)">Fantasy</button>
+      <button class="nav-btn" onclick="showScreen('rankings',event)">Classificacions</button>
+      <button class="nav-btn" onclick="showScreen('draft',event)">Draft</button>
+      <button class="nav-btn" onclick="showScreen('recorregut',event)">Recorregut</button>
+      <button class="nav-btn" onclick="showScreen('etapes',event)">Guanyadors</button>
+      <button class="nav-btn" onclick="showScreen('setup',event)">Jugadors</button>
+    </div>
+  </nav>
+</header>
+<main>
+
+<div id="screen-rankings" class="screen">
+  <button class="rules-btn" onclick="showRulesModal()">ℹ️ Com funciona la puntuació</button>
+  <div class="tab-row">
+    <button class="tab active-gc" onclick="showRankTab('gc',this)">🟡 General</button>
+    <button class="tab" onclick="showRankTab('munt',this)">🔴 Muntanya</button>
+    <button class="tab" onclick="showRankTab('sp',this)">🟢 Sprint</button>
+  </div>
+  <div class="card"><div id="rank-content"><div class="loading">Carregant...</div></div></div>
+</div>
+
+<div id="screen-fantasy" class="screen active">
+  <div class="card">
+    <div class="card-title">Classificació Fantasy</div>
+    <div id="fantasy-content"><div class="loading">Carregant...</div></div>
+  </div>
+</div>
+
+<div id="screen-draft" class="screen">
+  <div class="card">
+    <div class="card-title">Tots els corredors</div>
+    <input class="draft-search" id="draft-search" placeholder="🔍 Buscar corredor..." oninput="renderDraft()">
+    <div class="draft-filters">
+      <button class="draft-filter active" onclick="setDraftFilter('all',this)">Tots</button>
+      <button class="draft-filter f-gc" onclick="setDraftFilter('gc',this)">🟡 General</button>
+      <button class="draft-filter f-munt" onclick="setDraftFilter('munt',this)">🔴 Muntanya</button>
+      <button class="draft-filter f-sp" onclick="setDraftFilter('sprint',this)">🟢 Sprint</button>
+    </div>
+    <div id="draft-content"><div class="loading">Carregant...</div></div>
+  </div>
+</div>
+
+<div id="screen-recorregut" class="screen">
+  <div class="card">
+    <div class="card-title">Recorregut — 21 etapes</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
+      <span class="type-pill type-pla">Pla</span>
+      <span class="type-pill type-munt">Muntanya</span>
+      <span class="type-pill type-ondulat">Ondulat</span>
+      <span class="type-pill type-cri">CRI</span>
+    </div>
+    <div id="recorregut-content"><div class="loading">Carregant...</div></div>
+  </div>
+</div>
+
+<div id="screen-etapes" class="screen">
+  <div class="card">
+    <div class="card-title">Guanyadors d'etapa</div>
+    <div id="etapes-content"><div class="loading">Carregant...</div></div>
+  </div>
+</div>
+
+<div id="screen-setup" class="screen">
+  <div id="setup-locked">
+    <div class="card" style="max-width:360px;margin:20px auto;">
+      <div class="card-title">Accés restringit</div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:4px;">Introdueix la contrassenya per editar els jugadors.</p>
+      <input type="password" class="pin-input" id="pw-input" placeholder="Contrassenya" onkeydown="if(event.key==='Enter')checkPw()">
+      <button class="btn btn-primary" onclick="checkPw()">Entrar</button>
+      <div id="pw-error" style="margin-top:8px;"></div>
+    </div>
+  </div>
+  <div id="setup-unlocked" style="display:none;">
+    <div class="alert alert-info" style="margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;">
+      <span>Tria 3 corredors · màx 15M per equip</span>
+      <button class="btn btn-sm btn-ghost" onclick="lockSetup()">Bloquejar</button>
+    </div>
+    <div class="players-grid" id="players-grid"></div>
+    <div style="margin-top:16px;"><button class="btn btn-primary" id="save-players-btn" onclick="savePlayers()">Desar jugadors</button></div>
+    <div id="setup-msg" style="margin-top:8px;"></div>
+    <div class="card" style="margin-top:16px;">
+      <div class="card-title">🔄 Sincronització entre dispositius</div>
+      <p style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:10px;">Els jugadors i les classificacions es desen al repositori i tots els dispositius els llegeixen d'allà. Per poder-hi escriure des d'aquí, cal un <b>token de GitHub</b> (només al dispositiu d'administració):<br>GitHub → Settings → Developer settings → <b>Fine-grained tokens</b> → Generate new token → selecciona només aquest repositori → Permissions → <b>Contents: Read and write</b>.</p>
+      <input type="password" class="pin-input" id="gh-token" placeholder="Token de GitHub (github_pat_...)" style="font-size:13px;letter-spacing:normal;text-align:left;">
+      <button class="btn btn-sm" onclick="saveGhToken()">Desar token en aquest dispositiu</button>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <div class="card-title">✍️ Resultats manuals (còpia de seguretat) <span style="font-size:10px;color:var(--muted);font-weight:400;" id="app-ver"></span></div>
+      <p style="font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:6px;">Si l'actualització automàtica falla, enganxa aquí les classificacions. <b>Pots copiar-enganxar la taula sencera de qualsevol web</b> (amb posicions, temps i equips): el sistema detecta els noms sol i reconeix els corredors del pool.</p>
+      <p style="font-size:12px;line-height:1.5;margin-bottom:10px;">📋 Fonts recomanades (les 4 classificacions en UNA sola pàgina, actualitzades cada etapa):<br>
+      • <b>idlprocycling.com</b> → cerca "Vuelta a España 2026 standings" — format numerat net, ideal per copiar<br>
+      • <b>cyclinguptodate.com</b> → "Vuelta a España 2026 classifications"<br>
+      Copia la taula de cada classificació al camp corresponent. El sistema treu els noms sol.</p>
+      <label class="ml-label">🟡 General (enganxa la taula, 1r a dalt)</label>
+      <textarea id="mr-gc" class="ml-textarea" placeholder="1. Jonas Vingegaard&#10;2. Filippo Ganna +0:08&#10;3. Tadej Pogacar +0:12&#10;...  (o enganxa-ho tal qual de la web)"></textarea>
+      <label class="ml-label">🔴 Muntanya</label>
+      <textarea id="mr-munt" class="ml-textarea" placeholder="(buit fins que hi hagi punts de muntanya)"></textarea>
+      <label class="ml-label">🟢 Sprint / Punts</label>
+      <textarea id="mr-sprint" class="ml-textarea" placeholder="(buit fins al primer sprint)"></textarea>
+      <label class="ml-label">🏆 Guanyadors d'etapa (format: núm,corredor — un per línia)</label>
+      <textarea id="mr-winners" class="ml-textarea" placeholder="1,Team Visma-Lease a Bike&#10;2,..."></textarea>
+      <button class="btn btn-primary" id="save-results-btn" onclick="saveManualResults()" style="margin-top:8px;">Publicar resultats manuals</button>
+      <div id="results-msg" style="margin-top:8px;"></div>
+    </div>
+  </div>
+</div>
+
+</main>
+<script>
+const RIDERS_POOL={"gc":["Tadej Pogačar","João Almeida","Primož Roglič","Mattias Skjelmose","Richard Carapaz","Felix Gall","Tobias Halland Johannessen","Santiago Buitrago","Pello Bilbao","Jay Vine","Carlos Rodríguez","Enric Mas","Cian Uijtdebroeks","Mikel Landa","Matthew Riccitello","Sepp Kuss","Eddie Dunbar","Oscar Onley","Lorenzo Fortunato","Pablo Castrillo"],"munt":["Richard Carapaz","Felix Gall","Santiago Buitrago","Pello Bilbao","Jay Vine","Sepp Kuss","Mikel Landa","Lorenzo Fortunato","Eddie Dunbar","Oscar Onley","Jan Hirt","Steff Cras","Valentin Paret-Peintre","Guillaume Martin","Thomas Gloag","Cristián Rodríguez"],"sprint":["Kaden Groves","Wout van Aert","Mads Pedersen","Thibau Nys","Jordi Meeus","Alberto Dainese","Bryan Coquard","Orluis Aular","Vincenzo Albanese","Magnus Cort","Luca Van Boven","Ethan Hayter","Steffen De Schuyteneer","Floris Van Tricht","Fabio Van den Bossche"]};
+const OUT_RIDERS=[];
+const ALL_RIDERS=[...RIDERS_POOL.gc,...RIDERS_POOL.munt,...RIDERS_POOL.sprint];
+const SELECTABLE_RIDERS=ALL_RIDERS.filter(r=>!OUT_RIDERS.includes(r));
+// Recorregut oficial Vuelta a España 2026 (font: ASO / ProCyclingStats)
+// profile: punts [fracció distància, altitud m] per dibuixar el perfil
+const STAGES=[{num:1,date:"ds 22 ag",start:"Monaco",end:"Monaco",name:"Monaco › Monaco (CRI)",type:"cri",km:9.4,desnivell:50,desc:"CRI curtíssima i explosiva pel circuit urbà de Mònaco.",climbs:[],profile:[[0, 100], [0.25, 130], [0.5, 160], [0.75, 150], [1, 220]]},
+{num:2,date:"dg 23 ag",start:"Monaco",end:"Manosque",name:"Monaco › Manosque",type:"ondulat",km:214.3,desnivell:2500,desc:"Etapa llarga i trencacames; ideal per escapades i puncheurs.",climbs:["Châteauneuf-Grasse", "Col de Saint-Andrieu"],profile:[[0, 100], [0.2, 250], [0.4, 180], [0.58, 500], [0.72, 260], [0.86, 430], [1, 180]]},
+{num:3,date:"dl 24 ag",start:"Gruissan",end:"Font Romeu",name:"Gruissan › Font Romeu",type:"munt",km:174,desnivell:3200,desc:"Primera gran etapa pirinenca, amb arribada en alçada.",climbs:["Ports pirinencs", "Font-Romeu"],profile:[[0, 100], [0.18, 300], [0.35, 850], [0.5, 500], [0.66, 1200], [0.8, 900], [1, 1700]]},
+{num:4,date:"dt 25 ag",start:"Andorra la Vella",end:"Andorra la Vella",name:"Andorra la Vella › Andorra la Vella",type:"munt",km:104.8,desnivell:3000,desc:"Etapa curta i molt dura per Andorra, amb desnivell concentrat.",climbs:["Ports d’Andorra", "final en alt"],profile:[[0, 100], [0.18, 300], [0.35, 850], [0.5, 500], [0.66, 1200], [0.8, 900], [1, 1700]]},
+{num:5,date:"dc 26 ag",start:"Falset",end:"Roquetes",name:"Falset › Roquetes",type:"ondulat",km:173.3,desnivell:1600,desc:"Etapa catalana ondulada amb el Puerto de Paüls a la part final.",climbs:["Puerto de Paüls (3a)"],profile:[[0, 100], [0.2, 250], [0.4, 180], [0.58, 500], [0.72, 260], [0.86, 430], [1, 180]]},
+{num:6,date:"dj 27 ag",start:"Alcossebre",end:"Castelló",name:"Alcossebre › Castelló",type:"ondulat",km:177.4,desnivell:1500,desc:"Dia de transició amb terreny irregular abans d’arribar a Castelló.",climbs:["Ports de 3a categoria"],profile:[[0, 100], [0.2, 250], [0.4, 180], [0.58, 500], [0.72, 260], [0.86, 430], [1, 180]]},
+{num:7,date:"dv 28 ag",start:"Vall d’Alba",end:"Aramón Valdelinares",name:"Vall d’Alba › Aramón Valdelinares",type:"munt",km:149.8,desnivell:3000,desc:"Primer final clarament de muntanya a Valdelinares.",climbs:["Ascensió final a Aramón Valdelinares"],profile:[[0, 100], [0.18, 300], [0.35, 850], [0.5, 500], [0.66, 1200], [0.8, 900], [1, 1700]]},
+{num:8,date:"ds 29 ag",start:"Puçol",end:"Xeraco",name:"Puçol › Xeraco",type:"pla",km:171,desnivell:700,desc:"Etapa molt favorable als velocistes i a un sprint massiu.",climbs:[],profile:[[0, 100], [0.25, 120], [0.5, 90], [0.75, 110], [1, 80]]},
+{num:9,date:"dg 30 ag",start:"La Vila Joiosa",end:"Alto de Aitana",name:"La Vila Joiosa › Alto de Aitana",type:"munt",km:187.4,desnivell:4200,desc:"Gran arribada en alt a Aitana, primera selecció important de la general.",climbs:["Alto de Aitana (final en alt)"],profile:[[0, 100], [0.18, 300], [0.35, 850], [0.5, 500], [0.66, 1200], [0.8, 900], [1, 1700]]},
+{num:10,date:"dt 1 set",start:"Alcaraz",end:"Elche de la Sierra",name:"Alcaraz › Elche de la Sierra",type:"ondulat",km:184.7,desnivell:2200,desc:"Etapa trencacames per Albacete, propícia per escapades.",climbs:["Diversos colls de 3a/2a"],profile:[[0, 100], [0.2, 250], [0.4, 180], [0.58, 500], [0.72, 260], [0.86, 430], [1, 180]]},
+{num:11,date:"dc 2 set",start:"Cartagena",end:"Lorca",name:"Cartagena › Lorca",type:"pla",km:151.3,desnivell:800,desc:"Una de les millors opcions per als sprinters.",climbs:[],profile:[[0, 100], [0.25, 120], [0.5, 90], [0.75, 110], [1, 80]]},
+{num:12,date:"dj 3 set",start:"Vera",end:"Calar Alto",name:"Vera › Calar Alto",type:"munt",km:166.6,desnivell:3500,desc:"Nova jornada de muntanya amb final exigent a Calar Alto.",climbs:["Calar Alto (final en alt)"],profile:[[0, 100], [0.18, 300], [0.35, 850], [0.5, 500], [0.66, 1200], [0.8, 900], [1, 1700]]},
+{num:13,date:"dv 4 set",start:"Almuñécar",end:"Loja",name:"Almuñécar › Loja",type:"ondulat",km:192.8,desnivell:2600,desc:"Etapa llarga i ondulada per Granada; bona per escapades.",climbs:["Ports andalusos"],profile:[[0, 100], [0.2, 250], [0.4, 180], [0.58, 500], [0.72, 260], [0.86, 430], [1, 180]]},
+{num:14,date:"ds 5 set",start:"Jaén",end:"Sierra de la Pandera",name:"Jaén › Sierra de la Pandera",type:"munt",km:154.5,desnivell:3800,desc:"Un dels grans dies de muntanya, amb final dur a La Pandera.",climbs:["Sierra de la Pandera (final en alt)"],profile:[[0, 100], [0.18, 300], [0.35, 850], [0.5, 500], [0.66, 1200], [0.8, 900], [1, 1700]]},
+{num:15,date:"dg 6 set",start:"Palma del Río",end:"Córdoba",name:"Palma del Río › Córdoba",type:"pla",km:189.7,desnivell:900,desc:"Última gran oportunitat dels velocistes abans del segon descans.",climbs:[],profile:[[0, 100], [0.25, 120], [0.5, 90], [0.75, 110], [1, 80]]},
+{num:16,date:"dt 8 set",start:"Cortegana",end:"La Rábida",name:"Cortegana › La Rábida",type:"ondulat",km:181.1,desnivell:1700,desc:"Etapa de retorn després del descans, amb terreny ondulat.",climbs:["Ports menors"],profile:[[0, 100], [0.2, 250], [0.4, 180], [0.58, 500], [0.72, 260], [0.86, 430], [1, 180]]},
+{num:17,date:"dc 9 set",start:"Dos Hermanas",end:"Sevilla",name:"Dos Hermanas › Sevilla",type:"pla",km:185,desnivell:600,desc:"Final clarament destinat als velocistes.",climbs:[],profile:[[0, 100], [0.25, 120], [0.5, 90], [0.75, 110], [1, 80]]},
+{num:18,date:"dj 10 set",start:"El Puerto de Santa María",end:"Jerez de la Frontera",name:"El Puerto de Santa María › Jerez de la Frontera (CRI)",type:"cri",km:32.1,desnivell:250,desc:"Contrarellotge individual decisiva per a la general.",climbs:["Dos punts intermedis"],profile:[[0, 100], [0.25, 130], [0.5, 160], [0.75, 150], [1, 220]]},
+{num:19,date:"dv 11 set",start:"Vélez-Málaga",end:"Peñas Blancas",name:"Vélez-Málaga › Peñas Blancas. Estepona",type:"ondulat",km:210.8,desnivell:3000,desc:"Etapa llarguíssima amb arribada en alt a Peñas Blancas.",climbs:["Peñas Blancas (final en alt)"],profile:[[0, 100], [0.2, 250], [0.4, 180], [0.58, 500], [0.72, 260], [0.86, 430], [1, 180]]},
+{num:20,date:"ds 12 set",start:"La Calahorra",end:"Collado del Alguacil",name:"La Calahorra › Collado del Alguacil",type:"munt",km:186.8,desnivell:4300,desc:"Etapa reina i última gran batalla de la general, amb final a Collado del Alguacil.",climbs:["El Duque (1a)", "Collado del Alguacil (HC, final)"],profile:[[0, 100], [0.18, 300], [0.35, 850], [0.5, 500], [0.66, 1200], [0.8, 900], [1, 1700]]},
+{num:21,date:"dg 13 set",start:"Carrefour Granada",end:"Granada",name:"Carrefour Granada › Granada",type:"pla",km:112,desnivell:700,desc:"Gran final de la Vuelta a Granada.",climbs:[],profile:[[0, 100], [0.25, 120], [0.5, 90], [0.75, 110], [1, 80]]}];
+// GC puntua fins al 10è; Muntanya i Sprint fins al 15è (les classificacions per punts són més volàtils)
+const PTS={gc:[25,22,19,16,13,10,7,5,3,1],munt:[18,15,12,10,8,7,6,5,4,3,2,2,1,1,1],sprint:[15,12,10,8,7,6,5,4,3,2,2,1,1,1,1]};
+const PASSWORD="RutEduBri";
+const TYPE_LABELS={pla:"Pla",munt:"Muntanya",cri:"CRI",ondulat:"Ondulat"};
+const TYPE_CLS={pla:"type-pla",munt:"type-munt",cri:"type-cri",ondulat:"type-ondulat"};
+let liveData=null,ridersDB=[],currentRankTab='gc',draftFilter='all';
+
+function loadState(){try{const s=localStorage.getItem('fve26v1');if(s)return JSON.parse(s);}catch(e){}return{players:Array.from({length:12},(_,i)=>({id:i+1,name:`Jugador ${i+1}`,gc:'',munt:'',sprint:''})),unlocked:false};}
+function saveState(){try{localStorage.setItem('fve26v1',JSON.stringify(state));}catch(e){}}
+let state=loadState();
+
+async function loadData(){
+  const ts=Date.now();
+  try{
+    const [r1,r2,r3]=await Promise.all([
+      fetch(`data/classifications.json?t=${ts}`,{cache:'no-store'}),
+      fetch(`data/riders.json?t=${ts}`,{cache:'no-store'}),
+      fetch(`data/players.json?t=${ts}`,{cache:'no-store'})
+    ]);
+    liveData=await r1.json();
+    // Si el repo té dades buides però tenim resultats desats localment, mantenim els locals
+    const repoEmpty=!liveData||((!liveData.gc||!liveData.gc.length)&&(!liveData.stage_winners||!liveData.stage_winners.length));
+    if(repoEmpty&&state.lastClassifications&&(state.lastClassifications.gc?.length||state.lastClassifications.stage_winners?.length)){
+      liveData=state.lastClassifications;
+    }
+    const rd=await r2.json();
+    ridersDB=rd.riders||[];
+    // Jugadors compartits: el fitxer del repo és la font de veritat per a tots els dispositius.
+    // Només es bloqueja l'adopció mentre s'està editant activament (pantalla Jugadors oberta
+    // i desbloquejada), o si el fitxer remot encara no s'ha sincronitzat mai (updated_at buit).
+    try{
+      const pd=await r3.json();
+      const editing=state.unlocked&&document.querySelector('.screen.active')?.id==='screen-setup';
+      if(pd&&Array.isArray(pd.players)&&pd.players.length&&!editing&&pd.updated_at){
+        if(pd.updated_at!==(state.playersUpdatedAt||'')){
+          state.players=pd.players;
+          state.playersUpdatedAt=pd.updated_at;
+          saveState(); // còpia local per si es queda offline
+        }
+      }
+      window.__remotePlayersAt=pd&&pd.updated_at?pd.updated_at:null;
+    }catch(e){/* si players.json encara no existeix, es manté l'estat local */}
+  }catch(e){
+    // Sense connexió: usa les últimes classificacions desades localment si n'hi ha
+    liveData=state.lastClassifications||{updated_at:'Sense dades',current_stage:0,gc:[],mountain:[],sprint:[],stage_winners:[],stages:[]};
+  }
+  const dot=document.getElementById('update-dot');
+  const txt=document.getElementById('update-text');
+  dot.className='update-dot'+(liveData.current_stage>0?'':' old');
+  txt.textContent=liveData.current_stage>0?`E${liveData.current_stage} · ${liveData.updated_at}`:liveData.updated_at;
+  refreshCurrentScreen();
+}
+
+function showScreen(id,ev){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('screen-'+id).classList.add('active');
+  if(ev)ev.target.classList.add('active');
+  refreshScreen(id);
+}
+function refreshCurrentScreen(){
+  const a=document.querySelector('.screen.active');if(!a)return;
+  const id=a.id.replace('screen-','');
+  // No redibuixar el formulari de Jugadors durant un refresc en segon pla si s'està editant
+  if(id==='setup'&&state.unlocked)return;
+  refreshScreen(id);
+}
+function refreshScreen(id){
+  if(id==='rankings')renderRankings(currentRankTab);
+  if(id==='fantasy')renderFantasy();
+  if(id==='draft')renderDraft();
+  if(id==='recorregut')renderRecorregut();
+  if(id==='etapes')renderEtapes();
+  if(id==='setup')renderSetupScreen();
+}
+
+function matchRider(name,arr){
+  if(!name||!arr||!arr.length)return -1;
+  const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[.\-]/g,' ').replace(/\s{2,}/g,' ').trim();
+  const n=norm(name);
+  const nWords=n.split(/\s+/).filter(Boolean);
+  const nLast=nWords[nWords.length-1];
+  const nFirstInit=nWords[0]?nWords[0][0]:'';
+  for(let i=0;i<arr.length;i++){
+    const rn=norm(arr[i].name);
+    if(n===rn)return i;
+    const rWords=rn.split(/\s+/).filter(Boolean);
+    const rLast=rWords[rWords.length-1];
+    const rFirstInit=rWords[0]?rWords[0][0]:'';
+    // Cognom igual: cal decidir si és la mateixa persona
+    if(nLast&&rLast&&nLast===rLast&&nLast.length>2){
+      const nHasFirst=nWords.length>1;
+      const rHasFirst=rWords.length>1;
+      // Si tots dos tenen nom/inicial, la INICIAL ha de coincidir (distingeix germans: A. vs V. Paret-Peintre)
+      if(nHasFirst&&rHasFirst){
+        if(nFirstInit===rFirstInit)return i;
+        // mateixos cognoms però inicials diferents → NO és la mateixa persona, continua buscant
+        continue;
+      }
+      // Si un dels dos només té cognom, acceptem (no hi ha manera de desambiguar)
+      return i;
+    }
+    if(rn.includes(n)||n.includes(rn))return i;
+  }
+  return -1;
+}
+function isInPool(name){return matchRider(name,ALL_RIDERS.map(r=>({name:r})))>=0;}
+function getRiderDB(name){if(!name||!ridersDB.length)return null;return ridersDB.find(r=>matchRider(name,[{name:r.name}])>=0)||null;}
+function getOwner(riderName){for(const p of state.players){if(!p.name)continue;for(const f of[p.gc,p.munt,p.sprint]){if(f&&matchRider(riderName,[{name:f}])>=0)return p.name;}}return null;}
+
+/* RANKINGS */
+function showRankTab(cat,btn){
+  currentRankTab=cat;
+  document.querySelectorAll('.tab').forEach(t=>t.className='tab');
+  btn.className='tab active-'+(cat==='munt'?'munt':cat==='sp'?'sp':'gc');
+  renderRankings(cat);
+}
+function renderRankings(cat){
+  const el=document.getElementById('rank-content');
+  if(!liveData){el.innerHTML='<div class="loading">Carregant...</div>';return;}
+  const data=cat==='gc'?liveData.gc:cat==='munt'?liveData.mountain:liveData.sprint;
+  const dotCls=cat==='gc'?'pd-gc':cat==='munt'?'pd-munt':'pd-sp';
+  const valLabel=cat==='gc'?'Temps':'Pts';
+  if(!data||!data.length){el.innerHTML='<div class="no-data">Sense dades. La Vuelta comença el 22 d\'agost.</div>';return;}
+  const inPoolCount=data.filter(r=>isInPool(r.name)).length;
+  let html=`<div style="font-size:11px;color:var(--muted);margin-bottom:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;">
+    <span><span class="pool-dot ${dotCls}"></span>Negreta = al pool</span>
+    <span>${inPoolCount}/${data.length} del pool</span>
+  </div>
+  <table class="lb-table"><thead><tr><th style="width:32px;">#</th><th>Corredor</th><th class="r">${valLabel}</th></tr></thead><tbody>`;
+  data.forEach((r,i)=>{
+    const inPool=isInPool(r.name);
+    const cls=inPool?'rider-in-pool':'rider-not-pool';
+    const dot=inPool?`<span class="pool-dot ${dotCls}"></span>`:'';
+    const pos=r.pos||(i+1);
+    const posCls=pos===1?'p1':pos===2?'p2':pos===3?'p3':'';
+    const owner=getOwner(r.name);
+    const ownerHtml=owner?`<span class="owner-pill">${owner}</span>`:'';
+    html+=`<tr class="clickable" onclick="showRiderModal('${r.name.replace(/'/g,"\\'")}')">
+      <td><span class="pos-num ${posCls}">${pos}</span></td>
+      <td><div class="${cls}">${dot}${r.name}${ownerHtml}</div><div class="team-name">${r.team||''}</div></td>
+      <td class="val-col">${r.value||''}</td>
+    </tr>`;
+  });
+  html+='</tbody></table>';
+  el.innerHTML=html;
+}
+
+/* FANTASY */
+function getScore(player){
+  if(!liveData)return{gcPts:0,muntPts:0,spPts:0,bonusPts:0,total:0,gcPos:'—',muntPos:'—',spPos:'—',gcRealPos:null,muntRealPos:null,spRealPos:null};
+  const gcIdx=matchRider(player.gc,liveData.gc);
+  const muntIdx=matchRider(player.munt,liveData.mountain);
+  const spIdx=matchRider(player.sprint,liveData.sprint);
+  const gcPts=gcIdx>=0&&gcIdx<PTS.gc.length?PTS.gc[gcIdx]:0;
+  const muntPts=muntIdx>=0&&muntIdx<PTS.munt.length?PTS.munt[muntIdx]:0;
+  const spPts=spIdx>=0&&spIdx<PTS.sprint.length?PTS.sprint[spIdx]:0;
+  let bonusPts=0;
+  const myRiders=[player.gc,player.munt,player.sprint].filter(Boolean);
+  (liveData.stage_winners||[]).forEach(sw=>{if(!sw.winner)return;myRiders.forEach(r=>{if(matchRider(r,[{name:sw.winner}])>=0)bonusPts+=5;});});
+  return{gcPts,muntPts,spPts,bonusPts,total:gcPts+muntPts+spPts+bonusPts,
+    gcPos:gcIdx>=0?`${gcIdx+1}r`:'—',muntPos:muntIdx>=0?`${muntIdx+1}r`:'—',spPos:spIdx>=0?`${spIdx+1}r`:'—',
+    gcRealPos:gcIdx>=0?gcIdx+1:null,muntRealPos:muntIdx>=0?muntIdx+1:null,spRealPos:spIdx>=0?spIdx+1:null};
+}
+function renderFantasy(){
+  const el=document.getElementById('fantasy-content');
+  const active=state.players.filter(p=>p.name&&(p.gc||p.munt||p.sprint));
+  if(!active.length){el.innerHTML='<div class="no-data">Configura els jugadors a "Jugadors".</div>';return;}
+  const scored=active.map(p=>({...p,...getScore(p)})).sort((a,b)=>b.total-a.total);
+  const cur=liveData?.current_stage||0;
+  const pct=Math.min(100,Math.round(cur/21*100));
+  const syncAt=state.playersUpdatedAt?new Date(state.playersUpdatedAt).toLocaleString('ca-ES',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):null;
+  const syncHtml=syncAt?`<div style="font-size:10px;color:var(--muted);margin-bottom:8px;">🔄 Equips sincronitzats: ${syncAt}</div>`:`<div style="font-size:10px;color:#991B1B;background:#FEF2F2;border-radius:6px;padding:5px 8px;margin-bottom:8px;">⚠️ Equips mai sincronitzats amb el servidor — aquest dispositiu mostra dades locals</div>`;
+  let html=`${syncHtml}<div style="margin-bottom:14px;">
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px;"><span>Progrés</span><span>Etapa ${cur}/21</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+  </div>
+  <table class="lb-table"><thead><tr>
+    <th style="width:32px;">#</th><th>Jugador</th>
+    <th class="r" style="font-size:9px;">GC</th>
+    <th class="r" style="font-size:9px;">M</th>
+    <th class="r" style="font-size:9px;">S</th>
+    <th class="r" style="font-size:9px;">V</th>
+    <th class="r">Pts</th>
+  </tr></thead><tbody>`;
+  scored.forEach((p,i)=>{
+    const medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
+    const posCls=i===0?'p1':i===1?'p2':i===2?'p3':'';
+    let vicCount=0;
+    const myRiders=[p.gc,p.munt,p.sprint].filter(Boolean);
+    (liveData?.stage_winners||[]).forEach(sw=>{if(!sw.winner)return;myRiders.forEach(r=>{if(matchRider(r,[{name:sw.winner}])>=0)vicCount++;});});
+    html+=`<tr class="clickable" onclick="showPlayerDetail(${p.id})">
+      <td><span class="pos-num ${posCls}">${medal||(i+1)}</span></td>
+      <td>
+        <div class="fantasy-name">${p.name}</div>
+        <div class="rider-mini-badges">
+          <span class="cat-badge b-gc">${p.gc?p.gc.split(' ').pop():'—'} ${p.gcPos}</span>
+          <span class="cat-badge b-munt">${p.munt?p.munt.split(' ').pop():'—'} ${p.muntPos}</span>
+          <span class="cat-badge b-sp">${p.sprint?p.sprint.split(' ').pop():'—'} ${p.spPos}</span>
+        </div>
+      </td>
+      <td class="pts-total" style="color:#7A5F00;font-size:13px;">${p.gcPts}</td>
+      <td class="pts-total" style="color:var(--rouge);font-size:13px;">${p.muntPts}</td>
+      <td class="pts-total" style="color:var(--vert);font-size:13px;">${p.spPts}</td>
+      <td style="text-align:right;">${vicCount>0?`<button class="vic-btn" onclick="event.stopPropagation();showVictories(${p.id})"><span class="vic-count">${vicCount}</span>🏆</button>`:'<span style="color:var(--muted);font-size:11px;">—</span>'}</td>
+      <td class="pts-total">${p.total}${p.bonusPts>0?`<sup style="font-size:10px;color:var(--vert);">+${p.bonusPts}</sup>`:''}</td>
+    </tr>`;
+  });
+  html+='</tbody></table>';
+  el.innerHTML=html;
+}
+function showPlayerDetail(playerId){
+  const p=state.players.find(x=>x.id===playerId);if(!p)return;
+  const s=getScore(p);
+  openModal(`<div class="modal-handle"></div>
+    <div class="modal-header"><h2>${p.name}</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="detail-grid">
+      <div class="detail-card dc-gc"><div class="dc-cat" style="color:#7A5F00;">General</div><div class="dc-name">${p.gc||'—'}</div><div class="dc-pts" style="color:#7A5F00;">${s.gcPts}</div><div class="dc-pos">${s.gcRealPos?`${s.gcRealPos}r`:'Fora top'}</div></div>
+      <div class="detail-card dc-munt"><div class="dc-cat" style="color:var(--rouge);">Muntanya</div><div class="dc-name">${p.munt||'—'}</div><div class="dc-pts" style="color:var(--rouge);">${s.muntPts}</div><div class="dc-pos">${s.muntRealPos?`${s.muntRealPos}r`:'Fora top'}</div></div>
+      <div class="detail-card dc-sp"><div class="dc-cat" style="color:var(--vert);">Sprint</div><div class="dc-name">${p.sprint||'—'}</div><div class="dc-pts" style="color:var(--vert);">${s.spPts}</div><div class="dc-pos">${s.spRealPos?`${s.spRealPos}r`:'Fora top'}</div></div>
+    </div>
+    ${s.bonusPts>0?`<div style="background:#F0FDF4;border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:var(--vert);font-weight:600;">+${s.bonusPts} pts de victòries</div>`:''}
+    <div class="total-row"><span>Total</span><span style="font-size:20px;">${s.total} pts</span></div>`);
+}
+function showVictories(playerId){
+  const p=state.players.find(x=>x.id===playerId);if(!p||!liveData)return;
+  const myRiders=[p.gc,p.munt,p.sprint].filter(Boolean);
+  const wins=[];
+  (liveData.stage_winners||[]).forEach(sw=>{if(!sw.winner)return;myRiders.forEach(r=>{if(matchRider(r,[{name:sw.winner}])>=0)wins.push({...sw,rider:r});});});
+  openModal(`<div class="modal-handle"></div>
+    <div class="modal-header"><h2>Victòries de ${p.name}</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
+    ${wins.length?`<table class="sw-table"><thead><tr><th>#</th><th>Guanyador</th><th>Etapa</th><th class="r">Pts</th></tr></thead><tbody>${wins.map(w=>`<tr><td><span class="stage-num">E${w.stage}</span></td><td style="font-weight:600;">${w.rider}</td><td style="font-size:11px;color:var(--muted);">${w.name||''}</td><td style="text-align:right;font-weight:700;color:var(--vert);">+5</td></tr>`).join('')}</tbody></table><div class="total-row" style="margin-top:12px;"><span>Total</span><span>+${wins.length*5} pts</span></div>`:'<div class="no-data">Cap victòria encara.</div>'}`);
+}
+
+/* RIDER MODAL */
+function showRiderModal(name){
+  const rd=getRiderDB(name);
+  const owner=getOwner(name);
+  const catLabel={gc:'General',munt:'Muntanya',sprint:'Sprint'};
+  const catPillCls={gc:'cp-gc',munt:'cp-munt',sprint:'cp-sp'};
+  const avatarBg={gc:'#FFF9C4',munt:'#FFEBEE',sprint:'#E8F5E9'};
+  const initials=name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+  const photoUrl=rd?`https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/${rd.wiki}.jpg/200px-${rd.wiki}.jpg`:'';
+  const photoHtml=rd?`<img id="rider-photo" src="${photoUrl}" class="rider-modal-photo" onerror="this.style.display='none';document.getElementById('rider-avatar-fb').style.display='flex';" alt="${name}"><div id="rider-avatar-fb" class="rider-modal-photo-fallback" style="background:${avatarBg[rd.cat]||'#F2F1ED'};display:none;">${initials}</div>`:`<div class="rider-modal-photo-fallback" style="background:#F2F1ED;">${initials}</div>`;
+  openModal(`<div class="modal-handle"></div>
+    <div class="modal-header">
+      <div style="display:flex;gap:12px;align-items:center;">
+        ${photoHtml}
+        <div>
+          <div style="font-size:17px;font-weight:700;line-height:1.2;">${name}</div>
+          ${rd?`<div style="font-size:12px;color:var(--muted);margin-top:2px;">${rd.team||''}</div>
+          <div style="display:flex;gap:5px;margin-top:6px;flex-wrap:wrap;">
+            <span class="cat-pill ${catPillCls[rd.cat]}">${catLabel[rd.cat]}</span>
+            <span class="stat-chip">${rd.flag} ${rd.country}</span>
+            <span class="stat-chip">${rd.age} anys</span>
+            <span style="font-size:11px;font-weight:700;background:var(--text);color:var(--jaune);border-radius:4px;padding:2px 6px;">${rd.val}M</span>
+          </div>`:''}
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    ${rd&&rd.out?`<div style="margin-top:12px;background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:10px 14px;font-size:13px;color:#991B1B;font-weight:600;">❌ ${rd.outReason||'Baixa — no corre la Vuelta 2026'}</div>`:''}
+    ${rd&&rd.wins&&rd.wins.length?`<div style="margin-top:12px;"><div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;">Palmarès</div><ul class="wins-list">${rd.wins.map(w=>`<li>${w}</li>`).join('')}</ul></div>`:''}
+    ${rd&&rd.out?'':owner?`<div style="margin-top:12px;background:#F0FDF4;border-radius:8px;padding:10px 14px;font-size:13px;color:var(--vert);font-weight:600;">Propietari: ${owner}</div>`:`<div style="margin-top:12px;background:var(--bg2);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--muted);">Sense propietari assignat</div>`}`);
+}
+
+/* DRAFT */
+function setDraftFilter(f,btn){
+  draftFilter=f;
+  document.querySelectorAll('.draft-filter').forEach(b=>{b.className=b.className.replace(' active','');});
+  btn.className+=' active';
+  renderDraft();
+}
+function renderDraft(){
+  const el=document.getElementById('draft-content');
+  if(!ridersDB.length){el.innerHTML='<div class="no-data">Carregant...</div>';return;}
+  const search=(document.getElementById('draft-search')?.value||'').toLowerCase().trim();
+  let list=ridersDB.filter(r=>{
+    if(draftFilter!=='all'&&r.cat!==draftFilter)return false;
+    if(search&&!r.name.toLowerCase().includes(search)&&!r.country.toLowerCase().includes(search))return false;
+    return true;
+  });
+  if(!list.length){el.innerHTML='<div class="no-data">Cap corredor trobat.</div>';return;}
+  const catRank={gc:0,munt:1,sprint:2};
+  list=list.slice().sort((a,b)=>(catRank[a.cat]-catRank[b.cat])||(b.val-a.val)||a.name.localeCompare(b.name));
+  const catLabel={gc:'General',munt:'Muntanya',sprint:'Sprint'};
+  const catPillCls={gc:'cp-gc',munt:'cp-munt',sprint:'cp-sp'};
+  const avatarBg={gc:'#FFF9C4',munt:'#FFEBEE',sprint:'#E8F5E9'};
+  let html='<div class="riders-grid">';
+  list.forEach(r=>{
+    const isOut=r.out===true;
+    const owner=isOut?null:getOwner(r.name);
+    const initials=r.name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+    const photoUrl=`https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/${r.wiki}.jpg/200px-${r.wiki}.jpg`;
+    html+=`<div class="rider-card ${owner?'owned':''} ${isOut?'is-out':''}" onclick="showRiderModal('${r.name.replace(/'/g,"\\'")}')">
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;">
+        <img src="${photoUrl}" class="rider-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="${r.name}">
+        <div class="rider-avatar-fallback" style="background:${avatarBg[r.cat]};display:none;">${initials}</div>
+        <div style="min-width:0;flex:1;">
+          <div class="rider-card-name">${r.flag} ${r.name}</div>
+          <div class="rider-card-team">${r.team}</div>
+        </div>
+      </div>
+      <div class="rider-card-meta">
+        <span class="cat-pill ${catPillCls[r.cat]}">${catLabel[r.cat]}</span>
+        <span class="val-badge">${r.val}M</span>
+        ${isOut?`<span class="out-badge">❌ Baixa</span>`:owner?`<span class="owner-tag">${owner}</span>`:`<span class="no-owner-tag">Lliure</span>`}
+      </div>
+    </div>`;
+  });
+  html+=`</div><div style="font-size:11px;color:var(--muted);margin-top:12px;">${list.length} corredors · Clica per veure el perfil</div>`;
+  el.innerHTML=html;
+}
+
+/* REGLES / PUNTUACIÓ */
+function showRulesModal(){
+  const posLabels=['1r','2n','3r','4t','5è','6è','7è','8è','9è','10è','11è','12è','13è','14è','15è'];
+  let rows='';
+  for(let i=0;i<15;i++){
+    const gcCell=i<PTS.gc.length?PTS.gc[i]:'—';
+    rows+=`<tr><td>${posLabels[i]}</td><td style="color:#7A5F00;">${gcCell}</td><td style="color:var(--rouge);">${PTS.munt[i]}</td><td style="color:var(--vert);">${PTS.sprint[i]}</td></tr>`;
+  }
+  openModal(`<div class="modal-handle"></div>
+    <div class="modal-header"><h2>ℹ️ Com funciona</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="rules-note">Cada jugador tria <b>3 corredors</b> (un de General, un de Muntanya i un d'Sprint) amb un pressupost màxim de <b>15M</b>.</div>
+    <div class="rules-section-title">Punts per posició a cada classificació</div>
+    <table class="rules-table">
+      <thead><tr><th>Posició</th><th>🟡 General</th><th>🔴 Muntanya</th><th>🟢 Sprint</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="rules-note">La General puntua fins al <b>10è</b>; Muntanya i Sprint fins al <b>15è</b>, perquè en aquestes classificacions els líders de la general sovint desplacen els especialistes.</div>
+    <div class="rules-note">Aquests punts són un <b>snapshot</b>: reflecteixen la posició <i>actual</i> del teu corredor a la classificació real de la Vuelta. Si el teu corredor puja o baixa posicions, els teus punts canvien amb ell (no s'acumulen dia a dia).</div>
+    <div class="rules-section-title">Bonus per victòria d'etapa</div>
+    <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:12px 14px;font-size:13px;color:#166534;">🏆 <b>+5 punts</b> cada cop que un dels teus 3 corredors guanya una etapa. Aquest bonus <b>sí que s'acumula</b> durant tota la Vuelta.</div>
+    <div class="rules-section-title">Exemple</div>
+    <div class="rules-note">Si el teu corredor de General va 2n (22 pts), el de Muntanya lidera (18 pts), el d'Sprint va 4t (8 pts) i entre tots han guanyat 2 etapes (+10), tens <b>58 punts</b>. Guanya qui té més punts quan la Vuelta arriba a Granada!</div>`);
+}
+
+/* RECORREGUT */
+function getStageStatus(s){
+  const cur=liveData?.current_stage||0;
+  if(s.num<=cur)return'done';
+  if(s.num===cur+1)return'next';
+  return'upcoming';
+}
+function stageProfileSVG(s,w,h){
+  w=w||320;h=h||90;
+  const pts=s.profile||[[0,0],[1,0]];
+  const alts=pts.map(p=>p[1]);
+  const minA=Math.min(...alts),maxA=Math.max(...alts);
+  const range=Math.max(maxA-minA,100);
+  const pad=6;
+  const X=f=>pad+f*(w-2*pad);
+  const Y=a=>h-pad-((a-minA)/range)*(h-2*pad-14);
+  let path=`M ${X(pts[0][0])} ${Y(pts[0][1])}`;
+  for(let i=1;i<pts.length;i++)path+=` L ${X(pts[i][0])} ${Y(pts[i][1])}`;
+  const area=path+` L ${X(1)} ${h-pad} L ${X(0)} ${h-pad} Z`;
+  const colors={munt:'#C62828',cri:'#6A1B9A',ondulat:'#2E7D32',pla:'#1565C0'};
+  const c=colors[s.type]||'#1565C0';
+  // Marca el punt més alt
+  let maxI=0;for(let i=0;i<pts.length;i++)if(pts[i][1]>pts[maxI][1])maxI=i;
+  const mx=X(pts[maxI][0]),my=Y(pts[maxI][1]);
+  return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">
+    <path d="${area}" fill="${c}" opacity="0.15"/>
+    <path d="${path}" fill="none" stroke="${c}" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="${mx}" cy="${my}" r="3" fill="${c}"/>
+    <text x="${Math.min(Math.max(mx,26),w-26)}" y="${Math.max(my-6,10)}" text-anchor="middle" font-size="9" fill="${c}" font-weight="700">${maxA.toLocaleString()}m</text>
+  </svg>`;
+}
+function renderRecorregut(){
+  const el=document.getElementById('recorregut-content');
+  const totalKm=Math.round(STAGES.reduce((a,s)=>a+s.km,0));
+  const muntCount=STAGES.filter(s=>s.type==='munt').length;
+  const done=STAGES.filter(s=>getStageStatus(s)==='done').length;
+  let html=`<div class="route-summary">
+    <span class="stat-chip">📏 ${totalKm.toLocaleString()} km</span>
+    <span class="stat-chip">⛰️ ${muntCount} etapes de muntanya</span>
+    <span class="stat-chip">✅ ${done}/21 completades</span>
+  </div><div class="stages-list">`;
+  STAGES.forEach(s=>{
+    const status=getStageStatus(s);
+    const isDone=status==='done';
+    const isNext=status==='next';
+    const sw=isDone?(liveData?.stage_winners||[]).find(w=>String(w.stage)===String(s.num)):null;
+    const winnerInPool=sw&&isInPool(sw.winner||'');
+    const rowCls=isDone?'done':isNext?'next':'upcoming';
+    const numCls=isDone?'stage-num-badge done-badge':'stage-num-badge';
+    html+=`<div class="stage-row ${rowCls}" style="cursor:pointer;" onclick="showStageDetail(${s.num})">
+      <div><span class="${numCls}">${s.num}</span></div>
+      <div class="stage-center">
+        <div class="stage-name">${s.name}${isNext?' <span style="font-size:9px;background:var(--jaune);color:#7A5F00;border-radius:3px;padding:1px 4px;">PRÒXIMA</span>':''}</div>
+        <div class="stage-date-type">
+          <span class="stage-date-sm">${s.date}</span>
+          <span class="type-pill ${TYPE_CLS[s.type]||'type-pla'}">${TYPE_LABELS[s.type]||s.type}</span>
+        </div>
+        ${isDone&&sw?`<div class="stage-winner-mini ${winnerInPool?'in-pool':''}">${winnerInPool?'★ ':''}🏆 ${sw.winner}</div>`:''}
+      </div>
+      <div class="stage-right">
+        <span class="stage-km">${s.km}km</span>
+        <span class="stage-km">${s.desnivell.toLocaleString()}m↑</span>
+      </div>
+    </div>`;
+  });
+  html+='</div><div style="font-size:11px;color:var(--muted);margin-top:10px;">Clica qualsevol etapa per veure el perfil i la informació · ★ = corredor del pool</div>';
+  el.innerHTML=html;
+}
+function showStageDetail(stageNum){
+  const s=STAGES.find(x=>x.num===stageNum);
+  if(!s)return;
+  const status=getStageStatus(s);
+  const isDone=status==='done';
+  const sw=isDone?(liveData?.stage_winners||[]).find(x=>String(x.stage)===String(stageNum)):null;
+  const medals=['🥇','🥈','🥉'];
+  const winnerHtml=sw&&sw.winner?`<div style="margin-top:12px;background:#FFF9C4;border:1px solid #FFD700;border-radius:8px;padding:10px 14px;font-size:13px;"><b>🏆 Guanyador:</b> ${sw.winner}${isInPool(sw.winner)?' ★':''}${getOwner(sw.winner)?` <span class="owner-pill">${getOwner(sw.winner)}</span>`:''}</div>`:'';
+  const top3html=sw&&sw.top3&&sw.top3.length?`<div style="margin-top:12px;"><div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px;">Podi</div><ul class="top3-list">${(sw.top3||[]).map((r,i)=>{const inp=isInPool(r);const own=getOwner(r);return`<li><span style="font-size:18px;width:28px;">${medals[i]}</span><span style="flex:1;${inp?'font-weight:700;':''}">${r}${inp?' ★':''}</span>${own?`<span class="owner-pill">${own}</span>`:''}</li>`;}).join('')}</ul></div>`:'';
+  const climbsHtml=s.climbs&&s.climbs.length?`<div style="margin-top:12px;"><div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:4px;">Ports destacats</div><ul class="climbs-list">${s.climbs.map(c=>`<li>${c}</li>`).join('')}</ul></div>`:'';
+  const statusPill=isDone?'<span style="font-size:10px;background:var(--bg2);color:var(--muted);border-radius:20px;padding:2px 8px;font-weight:600;">✅ Completada</span>':status==='next'?'<span style="font-size:10px;background:#FFF9C4;color:#7A5F00;border-radius:20px;padding:2px 8px;font-weight:600;">⏳ Pròxima</span>':'<span style="font-size:10px;background:var(--bg2);color:var(--muted);border-radius:20px;padding:2px 8px;font-weight:600;">📅 Pendent</span>';
+  openModal(`<div class="modal-handle"></div>
+    <div class="modal-header"><h2>Etapa ${s.num} ${statusPill}</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div style="font-size:14px;font-weight:600;margin-bottom:12px;">${s.name}</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;">
+      <div style="background:var(--bg2);border-radius:8px;padding:10px 6px;text-align:center;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px;">Data</div><div style="font-weight:600;font-size:12px;">${s.date}</div></div>
+      <div style="background:var(--bg2);border-radius:8px;padding:10px 6px;text-align:center;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px;">Tipus</div><span class="type-pill ${TYPE_CLS[s.type]}">${TYPE_LABELS[s.type]||s.type}</span></div>
+      <div style="background:var(--bg2);border-radius:8px;padding:10px 6px;text-align:center;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px;">Km</div><div style="font-weight:600;font-size:13px;">${s.km}</div></div>
+      <div style="background:var(--bg2);border-radius:8px;padding:10px 6px;text-align:center;"><div style="font-size:10px;color:var(--muted);margin-bottom:3px;">Desnivell</div><div style="font-weight:600;font-size:12px;">${s.desnivell.toLocaleString()}m</div></div>
+    </div>
+    <div class="stage-profile-box">${stageProfileSVG(s)}<div class="profile-label"><span>${s.start}</span><span>${s.end}</span></div></div>
+    ${s.desc?`<div style="margin-top:12px;font-size:13px;line-height:1.5;color:var(--text);">${s.desc}</div>`:''}
+    ${climbsHtml}
+    ${winnerHtml}
+    ${top3html}`);
+}
+
+/* ETAPES */
+function renderEtapes(){
+  const el=document.getElementById('etapes-content');
+  if(!liveData||!liveData.stage_winners||!liveData.stage_winners.length){el.innerHTML='<div class="no-data">Cap etapa completada. La Vuelta comença el 22 d\'agost.</div>';return;}
+  let html=`<table class="sw-table"><thead><tr><th>#</th><th>Guanyador</th><th>Etapa</th></tr></thead><tbody>`;
+  liveData.stage_winners.forEach(sw=>{
+    const inPool=isInPool(sw.winner||'');
+    const owner=getOwner(sw.winner||'');
+    const cls=inPool?'rider-in-pool':'rider-not-pool';
+    html+=`<tr class="clickable" onclick="showRiderModal('${(sw.winner||'').replace(/'/g,"\\'")}')">
+      <td><span class="stage-num">E${sw.stage}</span><div style="font-size:10px;color:var(--muted);">${sw.date||''}</div></td>
+      <td><span class="${cls}">${sw.winner||'—'}${inPool?'<span class="in-pool-star">★</span>':''}</span>${owner?`<span class="owner-pill">${owner}</span>`:''}</td>
+      <td style="font-size:11px;color:var(--muted);">${sw.name||''}</td>
+    </tr>`;
+  });
+  html+='</tbody></table>';
+  el.innerHTML=html;
+}
+
+/* SETUP */
+function getTeamBudget(player){
+  let total=0;
+  [player.gc,player.munt,player.sprint].forEach(name=>{const rd=getRiderDB(name);if(rd)total+=rd.val;});
+  return total;
+}
+function checkPw(){const v=document.getElementById('pw-input').value;if(v===PASSWORD){state.unlocked=true;saveState();renderSetupScreen();}else{document.getElementById('pw-error').innerHTML='<div class="alert alert-error">Contrassenya incorrecta.</div>';document.getElementById('pw-input').value='';}}
+function lockSetup(){state.unlocked=false;saveState();renderSetupScreen();}
+function renderSetupScreen(){
+  if(state.unlocked){document.getElementById('setup-locked').style.display='none';document.getElementById('setup-unlocked').style.display='block';const tk=document.getElementById('gh-token');if(tk)tk.value=state.ghToken||'';const av=document.getElementById('app-ver');if(av)av.textContent='('+(window.APP_VERSION||'?')+')';const mr=state.manualRaw||{};['gc','munt','sprint','winners'].forEach(k=>{const el=document.getElementById('mr-'+k);if(el&&mr[k]!==undefined)el.value=mr[k];});renderSetup();}
+  else{document.getElementById('setup-locked').style.display='block';document.getElementById('setup-unlocked').style.display='none';document.getElementById('pw-input').value='';document.getElementById('pw-error').innerHTML='';}
+}
+function renderSetup(){
+  document.getElementById('players-grid').innerHTML=state.players.map(p=>{
+    const configured=p.name&&p.gc&&p.munt&&p.sprint;
+    const budget=getTeamBudget(p);
+    const pct=Math.min(100,Math.round(budget/15*100));
+    const budgetCls=budget>15?'budget-over':budget===15?'budget-ok':'budget-warn';
+    const budgetColor=budget>15?'var(--rouge)':budget===15?'var(--vert)':'#FF9800';
+    const budgetText=budget>15?`⚠️ ${budget}M / 15M`:budget===15?`✓ ${budget}M / 15M`:`${budget}M / 15M`;
+    return `<div class="player-card ${configured?'configured':''}">
+      <div class="player-num">Jugador ${p.id}</div>
+      <input type="text" id="pname-${p.id}" value="${p.name}" placeholder="Nom del jugador" oninput="updateBudget(${p.id})">
+      <div class="rider-row"><span class="cat-label gc">GC</span><select id="pgc-${p.id}" onchange="updateBudget(${p.id})"><option value="">— corredor —</option>${SELECTABLE_RIDERS.map(r=>{const rd=getRiderDB(r);return`<option value="${r}" ${p.gc===r?'selected':''}>${r}${rd?` (${rd.val}M)`:''}</option>`;}).join('')}</select></div>
+      <div class="rider-row"><span class="cat-label munt">Munt.</span><select id="pmunt-${p.id}" onchange="updateBudget(${p.id})"><option value="">— corredor —</option>${SELECTABLE_RIDERS.map(r=>{const rd=getRiderDB(r);return`<option value="${r}" ${p.munt===r?'selected':''}>${r}${rd?` (${rd.val}M)`:''}</option>`;}).join('')}</select></div>
+      <div class="rider-row"><span class="cat-label sp">Sprint</span><select id="psprint-${p.id}" onchange="updateBudget(${p.id})"><option value="">— corredor —</option>${SELECTABLE_RIDERS.map(r=>{const rd=getRiderDB(r);return`<option value="${r}" ${p.sprint===r?'selected':''}>${r}${rd?` (${rd.val}M)`:''}</option>`;}).join('')}</select></div>
+      <div id="budget-${p.id}">
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:${budgetColor};font-weight:600;margin-bottom:3px;"><span>Pressupost</span><span>${budgetText}</span></div>
+        <div class="budget-bar"><div class="${budgetCls} budget-fill" style="width:${pct}%"></div></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+function updateBudget(playerId){
+  const gc=document.getElementById(`pgc-${playerId}`)?.value||'';
+  const munt=document.getElementById(`pmunt-${playerId}`)?.value||'';
+  const sprint=document.getElementById(`psprint-${playerId}`)?.value||'';
+  const budget=getTeamBudget({gc,munt,sprint});
+  const pct=Math.min(100,Math.round(budget/15*100));
+  const budgetCls=budget>15?'budget-over':budget===15?'budget-ok':'budget-warn';
+  const budgetColor=budget>15?'var(--rouge)':budget===15?'var(--vert)':'#FF9800';
+  const budgetText=budget>15?`⚠️ ${budget}M / 15M`:budget===15?`✓ ${budget}M / 15M`:`${budget}M / 15M`;
+  const el=document.getElementById(`budget-${playerId}`);
+  if(el)el.innerHTML=`<div style="display:flex;justify-content:space-between;font-size:11px;color:${budgetColor};font-weight:600;margin-bottom:3px;"><span>Pressupost</span><span>${budgetText}</span></div><div class="budget-bar"><div class="${budgetCls} budget-fill" style="width:${pct}%"></div></div>`;
+}
+async function forceRefresh(){
+  const txt=document.getElementById('update-text');
+  const info=document.getElementById('update-info');
+  if(info){info.style.opacity='0.5';}
+  if(txt)txt.textContent='Actualitzant...';
+  // Recarrega les dades del repo en aquest dispositiu (classificacions i jugadors)
+  await loadData();
+  if(info)info.style.opacity='1';
+}
+// Si l'app NO es serveix des de USUARI.github.io/REPO (p. ex. domini propi), omple-ho manualment:
+const GH_OWNER='';  // ex: 'eduard123'
+const GH_REPO='';   // ex: 'fantasy-vuelta-2026'
+function ghRepoInfo(){
+  if(GH_OWNER&&GH_REPO)return{owner:GH_OWNER,repo:GH_REPO};
+  const h=location.hostname;
+  if(!h.endsWith('.github.io'))return null;
+  const owner=h.split('.')[0];
+  const repo=location.pathname.split('/').filter(Boolean)[0]||null;
+  return repo?{owner,repo}:null;
+}
+function toBase64Unicode(str){return btoa(unescape(encodeURIComponent(str)));}
+async function pushPlayersToGitHub(playersObj){
+  return pushFileToGitHub('data/players.json',playersObj);
+}
+async function pushFileToGitHub(path,obj){
+  const gh=ghRepoInfo();
+  if(!gh)throw new Error('Aquesta app no s\'està servint des de GitHub Pages: no es pot sincronitzar.');
+  const token=(state.ghToken||'').trim();
+  if(!token)throw new Error('NO_TOKEN');
+  const apiUrl=`https://api.github.com/repos/${gh.owner}/${gh.repo}/contents/${path}`;
+  const headers={'Authorization':`Bearer ${token}`,'Accept':'application/vnd.github+json','Content-Type':'application/json'};
+  let sha=null;
+  const getRes=await fetch(apiUrl+'?t='+Date.now(),{headers});
+  if(getRes.status===200){sha=(await getRes.json()).sha;}
+  else if(getRes.status===401||getRes.status===403){throw new Error('Token invàlid o sense permisos sobre el repositori.');}
+  const body={message:`Actualitzar ${path} (${new Date().toLocaleString('ca-ES')})`,content:toBase64Unicode(JSON.stringify(obj,null,2))};
+  if(sha)body.sha=sha;
+  const putRes=await fetch(apiUrl,{method:'PUT',headers,body:JSON.stringify(body)});
+  if(!putRes.ok){const err=await putRes.json().catch(()=>({}));throw new Error(err.message||`Error ${putRes.status} en desar a GitHub.`);}
+}
+function parseLines(id){return (document.getElementById(id)?.value||'').split('\n').map(s=>s.trim()).filter(Boolean);}
+// Extreu {name, value} de classificacions enganxades de qualsevol web.
+// Enfocament BLOC A BLOC: cada corredor és un bloc que comença amb la seva posició (número sol).
+// Dins del bloc: el nom és la línia "X. COGNOM" o "Nom Cognom"; el valor és el temps o els punts.
+function extractRidersFromRows(id){
+  const rawText=(document.getElementById(id)?.value||'').replace(/\u00a0/g,' ');
+  const lines=rawText.split('\n').map(s=>s.trim()).filter(l=>l&&l!=='-');
+  const teamWords=/team|cycling|pro cyc|uae|ineos|visma|bora|hansgrohe|trek|movistar|astana|cofidis|groupama|alpecin|soudal|jayco|picnic|bahrain|education|tudor|caja|rural|lotto|uno-x|totalenergies|nsn|premier|emirates|quick-step|fdj|easypost|mobility|seguros|q36|intermarche|postnl|lease a bike|xds|xrg/i;
+  const headerRe=/^(riders?|time|temps|points|punts|rnk|rank|pos|gc|name|equip|équipe|equipo|hansen)([\s\t].*)?$/i;
+  const isPosLine=s=>/^\d{1,3}$/.test(s);
+  const timeRe=/([+\-]?\s*\d{1,2}h\s*\d{1,2}'\s*\d{1,2}''?)|([+\-]?\d{1,2}:\d{2}(:\d{2})?)/;
+  const looksLikeName=s=>{
+    const c=s.replace(/\s{2,}/g,' ').trim();
+    if(teamWords.test(c))return false;
+    return /^[A-Za-zÀ-ÿ]\.\s*[A-Za-zÀ-ÿ]/.test(c) || /^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'’\-]+(\s+[A-Za-zÀ-ÿ'’\-]+){1,3}$/.test(c);
+  };
+  const fmtTime=t=>{
+    t=t.replace(/\s+/g,' ').trim();
+    const hm=t.match(/([+\-]?)\s*(\d{1,2})h\s*(\d{1,2})'\s*(\d{1,2})/);
+    if(hm){const h=+hm[2],mn=+hm[3],sc=+hm[4];
+      if(hm[1]==='+')return '+'+(h>0?h+':'+String(mn).padStart(2,'0'):mn)+':'+String(sc).padStart(2,'0');
+      return (h>0?h+'h':'')+String(mn).padStart(2,'0')+':'+String(sc).padStart(2,'0');}
+    return t;
+  };
+  // 1) Parteix en blocs: cada línia de posició (número sol) obre un bloc nou
+  const blocks=[];let cur=null;
+  for(const line of lines){
+    if(headerRe.test(line)&&line.length<40&&!/^\d/.test(line))continue;
+    if(isPosLine(line)){ if(cur)blocks.push(cur); cur=[]; continue; }
+    if(cur)cur.push(line);
+  }
+  if(cur)blocks.push(cur);
+  // 2) De cada bloc, extreu nom + valor
+  const usedPool=new Set();
+  const matchToPool=name=>{for(const pr of ALL_RIDERS){if(usedPool.has(pr))continue;if(matchRider(pr,[{name}])>=0){usedPool.add(pr);return pr;}}return name;};
+  const results=[];
+  for(const block of blocks){
+    // nom: preferim una línia amb inicial "X. COGNOM"; si no, la primera que sembli nom
+    let nameLine=block.find(l=>/^[A-Za-zÀ-ÿ]\.\s*[A-Za-zÀ-ÿ]/.test(l)&&!teamWords.test(l))
+              || block.find(l=>looksLikeName(l));
+    if(!nameLine)continue;
+    const cleanNm=nameLine.replace(/\t.*$/,'').replace(/B\s*:.*/,'').replace(/\s{2,}/g,' ').trim();
+    // valor: busca PUNTS ("5 PTS"/"1 PT") o TEMPS a tot el bloc
+    let value='';
+    for(const l of block){
+      const pts=l.match(/(\d{1,3})\s*(pts?|punts?)\b/i);
+      if(pts){value=pts[1]+' pts';break;}
+    }
+    if(!value){
+      // temps: agafa el gap (segon temps de la línia d'equip, o "+..." )
+      for(const l of block){
+        const times=l.match(new RegExp(timeRe.source,'g'));
+        if(times&&times.length>=2){value=fmtTime(times[1]);break;}
+        if(times&&times.length===1){value=fmtTime(times[0]);break;}
+      }
+    }
+    if(!value){
+      // punts sense "pts": número solt darrere de la línia d'equip o en línia pròpia
+      const teamLine=block.find(l=>teamWords.test(l));
+      if(teamLine){const nm=teamLine.match(/\t\s*(\d{1,3})\b/)||teamLine.match(/\s(\d{1,3})\s*$/);if(nm)value=nm[1]+' pts';}
+      if(!value){const solo=block.find(l=>/^\d{1,3}$/.test(l));if(solo)value=solo+' pts';}
+    }
+    results.push({pos:results.length+1,name:matchToPool(cleanNm),team:'',value});
+  }
+  return results;
+}
+async function saveManualResults(){
+  // Desa el text CRU enganxat perquè no es perdi en sortir de la pantalla
+  state.manualRaw={
+    gc:document.getElementById('mr-gc')?.value||'',
+    munt:document.getElementById('mr-munt')?.value||'',
+    sprint:document.getElementById('mr-sprint')?.value||'',
+    winners:document.getElementById('mr-winners')?.value||''
+  };
+  saveState();
+  const gc=extractRidersFromRows('mr-gc');
+  const munt=extractRidersFromRows('mr-munt');
+  const sprint=extractRidersFromRows('mr-sprint');
+  const winners=parseLines('mr-winners').map(l=>{const c=l.split(',');return{stage:(c[0]||'').trim(),winner:(c.slice(1).join(',')||'').trim()};}).filter(w=>w.stage&&w.winner);
+  const data={updated_at:new Date().toLocaleString('ca-ES',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})+' (manual)',current_stage:winners.length,gc,mountain:munt,sprint,stage_winners:winners,scrape_status:'manual'};
+  // Vista prèvia de quants del pool s'han detectat
+  const poolHits=[...gc,...munt,...sprint].filter(r=>isInPool(r.name)).length;
+  // 1) Desa SEMPRE en local primer, perquè els resultats no es perdin encara que falli la sync
+  liveData=data;
+  state.lastClassifications=data;
+  saveState();
+  refreshCurrentScreen();
+  const btn=document.getElementById('save-results-btn');
+  if(btn){btn.disabled=true;btn.textContent='Publicant...';}
+  // 2) Intenta sincronitzar amb el repositori (per als altres dispositius)
+  try{
+    await pushFileToGitHub('data/classifications.json',data);
+    const sample=gc[0]?` Ex: ${gc[0].name} ${gc[0].value||'(sense temps)'}.`:'';
+    showMsg('results-msg',`✅ Publicat i sincronitzat! GC:${gc.length} · Munt:${munt.length} · Sprint:${sprint.length} (${poolHits} del pool).${sample} Tots els dispositius ho veuran en 1-2 min.`,true,10000);
+  }catch(e){
+    if(e.message==='NO_TOKEN'){
+      showMsg('results-msg',`✅ Desat en aquest dispositiu (GC:${gc.length} Munt:${munt.length} Sprint:${sprint.length}). ⚠️ Per compartir-ho amb la resta, configura el token de GitHub (secció de sobre) i torna a publicar.`,true,12000);
+    }else{
+      showMsg('results-msg','✅ Desat localment, però la sincronització ha fallat: '+e.message,false,12000);
+    }
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Publicar resultats manuals';}
+  }
+}
+function saveGhToken(){
+  state.ghToken=document.getElementById('gh-token')?.value.trim()||'';
+  saveState();
+  showMsg('setup-msg',state.ghToken?'Token desat en aquest dispositiu.':'Token esborrat.',true);
+}
+async function savePlayers(){
+  state.players=state.players.map(p=>({...p,name:document.getElementById(`pname-${p.id}`)?.value||p.name,gc:document.getElementById(`pgc-${p.id}`)?.value||'',munt:document.getElementById(`pmunt-${p.id}`)?.value||'',sprint:document.getElementById(`psprint-${p.id}`)?.value||''}));
+  const over=state.players.filter(p=>p.name&&getTeamBudget(p)>15);
+  if(over.length){showMsg('setup-msg',`⚠️ ${over.map(p=>p.name).join(', ')} superen els 15M!`,false);return;}
+  saveState();renderSetup();
+  // Sincronitzar amb el repositori perquè tots els dispositius vegin el mateix
+  const btn=document.getElementById('save-players-btn');
+  if(btn){btn.disabled=true;btn.textContent='Sincronitzant...';}
+  try{
+    const ts=new Date().toISOString();
+    await pushPlayersToGitHub({updated_at:ts,players:state.players});
+    state.playersUpdatedAt=ts;
+    saveState();
+    showMsg('setup-msg','✅ Jugadors desats i sincronitzats! Tots els dispositius els veuran en 1-2 minuts.',true);
+  }catch(e){
+    if(e.message==='NO_TOKEN'){
+      showMsg('setup-msg','⚠️ Desat NOMÉS en aquest dispositiu — la resta NO ho veurà! Cal el token de GitHub (camp de sota, secció "Sincronització").',false,10000);
+    }else{
+      showMsg('setup-msg','⚠️ Desat localment, però la sincronització ha FALLAT: '+e.message,false,10000);
+    }
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Desar jugadors';}
+  }
+}
+
+function openModal(html){closeModal();const bg=document.createElement('div');bg.className='modal-bg';bg.id='modal-bg';bg.innerHTML=`<div class="modal-box">${html}</div>`;bg.addEventListener('click',e=>{if(e.target===bg)closeModal();});document.body.appendChild(bg);}
+function closeModal(){const m=document.getElementById('modal-bg');if(m)m.remove();}
+function showMsg(id,text,ok,ms){const el=document.getElementById(id);if(!el)return;el.innerHTML=`<div class="alert ${ok?'alert-success':'alert-error'}">${text}</div>`;setTimeout(()=>{el.innerHTML='';},ms||3000);}
+
+// Service Worker per actualitzacions automàtiques
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').then(reg=>{
+    reg.addEventListener('updatefound',()=>{
+      const newWorker=reg.installing;
+      newWorker.addEventListener('statechange',()=>{
+        if(newWorker.state==='installed'&&navigator.serviceWorker.controller){
+          loadData();
+        }
+      });
+    });
+  });
+  // Força refresc de dades quan l'app torna a primer pla
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='visible')loadData();
+  });
+}
+
+loadData();
+setInterval(loadData, 3*60*1000); // cada 3 minuts
+renderSetupScreen();
+</script>
+</body>
+</html>

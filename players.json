@@ -1,0 +1,89 @@
+{
+  "updated_at": "2026-08-19T20:30:00.000Z",
+  "players": [
+    {
+      "id": 1,
+      "name": "Abejitas - Rut",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 2,
+      "name": "Randall Inc - Eric",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 3,
+      "name": "In Gabatxos We Trust - Ferran",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 4,
+      "name": "Molinillo Club - Edu",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 5,
+      "name": "Coloso Team - Carlo",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 6,
+      "name": "Senior Pedaling - Miquel",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 7,
+      "name": "Alenin Deceuninck - Oriol",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 8,
+      "name": "A Pois - Cris",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 9,
+      "name": "Pla i baixada - Martí",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 10,
+      "name": "CaravAnne - Anna",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 11,
+      "name": "Jugador 11",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    },
+    {
+      "id": 12,
+      "name": "Jugador 12",
+      "gc": "",
+      "munt": "",
+      "sprint": ""
+    }
+  ]
+}
