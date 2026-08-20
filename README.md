@@ -1,12 +1,5 @@
-# Fantasy Vuelta a España 2026
+# Fantasy Vuelta 2026
 
-App de fantasy per seguir la Vuelta a España 2026 en temps real.
+Versió 2.2 — draft revisat amb startlist final i informació disponible el 20/08/2026.
 
-Basat en la mateixa estructura del Fantasy Tour 2026: 3 corredors per jugador, pressupost màxim de 15M, classificacions General/Muntanya/Sprint i +5 punts per victòria d’etapa.
-
-## Fonts
-- ProCyclingStats: startlist de 179 corredors.
-- La Vuelta: recorregut oficial de 21 etapes, del 22 d’agost al 13 de setembre de 2026.
-
-## Desplegament
-El desplegament és igual que al projecte original: puja els fitxers a un repositori GitHub i activa GitHub Pages.
+Pool ampliat i valors recalibrats segons recorregut, rol d’equip, forma recent i risc de preparació.
