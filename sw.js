@@ -1,4 +1,4 @@
-const CACHE = 'fantasy-tour-v28';
+const CACHE = 'fantasy-vuelta-2026-v29';
 const DATA_FILES = ['data/classifications.json', 'data/riders.json', 'data/players.json'];
 
 self.addEventListener('install', e => {

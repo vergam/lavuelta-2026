@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#1A1A1A">
 <title>Fantasy Vuelta 2026</title>
 <script>
-const APP_VERSION="Vuelta26-v1";
-window.APP_VERSION='v28';</script>
+const APP_VERSION="Vuelta26-v2";
+window.APP_VERSION='v29';</script>
 <style>
 :root{--jaune:#FFD700;--vert:#2E7D32;--rouge:#C62828;--bg:#FAFAF8;--bg2:#F2F1ED;--border:#E0DFD8;--text:#1A1A1A;--muted:#6B6B6B;--white:#FFFFFF;--r:10px;}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
@@ -240,7 +240,9 @@ main{max-width:960px;margin:0 auto;padding:12px 12px 80px;}
   h1{font-size:22px;}
   .players-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}
   .riders-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
-  .stage-row{grid-template-columns:36px 70px 1fr auto auto auto;gap:10px;}
+  .stage-row{grid-template-columns:36px 70px minmax(0,1fr) auto auto auto;gap:10px;align-items:start;}
+  .stage-row .stage-center{min-width:0;}
+  .stage-row .stage-name{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.35;}
   .modal-bg{align-items:center;padding:20px;}
   .modal-box{border-radius:14px;max-width:500px;}
   .modal-handle{display:none;}
@@ -378,6 +380,8 @@ main{max-width:960px;margin:0 auto;padding:12px 12px 80px;}
 </main>
 <script>
 const RIDERS_POOL={"gc":["Tadej Pogačar","João Almeida","Primož Roglič","Mattias Skjelmose","Richard Carapaz","Felix Gall","Tobias Halland Johannessen","Santiago Buitrago","Pello Bilbao","Jay Vine","Carlos Rodríguez","Enric Mas","Cian Uijtdebroeks","Mikel Landa","Matthew Riccitello","Sepp Kuss","Eddie Dunbar","Oscar Onley","Lorenzo Fortunato","Pablo Castrillo"],"munt":["Richard Carapaz","Felix Gall","Santiago Buitrago","Pello Bilbao","Jay Vine","Sepp Kuss","Mikel Landa","Lorenzo Fortunato","Eddie Dunbar","Oscar Onley","Jan Hirt","Steff Cras","Valentin Paret-Peintre","Guillaume Martin","Thomas Gloag","Cristián Rodríguez"],"sprint":["Kaden Groves","Wout van Aert","Mads Pedersen","Thibau Nys","Jordi Meeus","Alberto Dainese","Bryan Coquard","Orluis Aular","Vincenzo Albanese","Magnus Cort","Luca Van Boven","Ethan Hayter","Steffen De Schuyteneer","Floris Van Tricht","Fabio Van den Bossche"]};
+const FALLBACK_RIDERS=[{"id":"pogacar","name":"Tadej Pogačar","cat":"gc","country":"Eslovènia","flag":"🇸🇮","age":0,"team":"UAE Team Emirates - XRG","val":12,"wiki":"","wins":[]},{"id":"almeida","name":"João Almeida","cat":"gc","country":"Portugal","flag":"🇵🇹","age":0,"team":"UAE Team Emirates - XRG","val":10,"wiki":"","wins":[]},{"id":"roglic","name":"Primož Roglič","cat":"gc","country":"Eslovènia","flag":"🇸🇮","age":0,"team":"Red Bull - BORA - hansgrohe","val":10,"wiki":"","wins":[]},{"id":"skjelmose","name":"Mattias Skjelmose","cat":"gc","country":"Dinamarca","flag":"🇩🇰","age":0,"team":"Lidl - Trek","val":9,"wiki":"","wins":[]},{"id":"carapaz","name":"Richard Carapaz","cat":"munt","country":"Equador","flag":"🇪🇨","age":0,"team":"EF Education - EasyPost","val":8,"wiki":"","wins":[]},{"id":"gall","name":"Felix Gall","cat":"munt","country":"Àustria","flag":"🇦🇹","age":0,"team":"Decathlon CMA CGM Team","val":7,"wiki":"","wins":[]},{"id":"johannessen","name":"Tobias Halland Johannessen","cat":"gc","country":"Noruega","flag":"🇳🇴","age":0,"team":"Uno-X Mobility","val":7,"wiki":"","wins":[]},{"id":"buitrago","name":"Santiago Buitrago","cat":"munt","country":"Colòmbia","flag":"🇨🇴","age":0,"team":"Bahrain - Victorious","val":7,"wiki":"","wins":[]},{"id":"bilbao","name":"Pello Bilbao","cat":"gc","country":"Espanya","flag":"🇪🇸","age":0,"team":"Bahrain - Victorious","val":6,"wiki":"","wins":[]},{"id":"vine","name":"Jay Vine","cat":"munt","country":"Austràlia","flag":"🇦🇺","age":0,"team":"UAE Team Emirates - XRG","val":6,"wiki":"","wins":[]},{"id":"carlosrodriguez","name":"Carlos Rodríguez","cat":"gc","country":"Espanya","flag":"🇪🇸","age":0,"team":"Netcompany INEOS","val":6,"wiki":"","wins":[]},{"id":"mas","name":"Enric Mas","cat":"gc","country":"Espanya","flag":"🇪🇸","age":0,"team":"Movistar Team","val":6,"wiki":"","wins":[]},{"id":"uijtdebroeks","name":"Cian Uijtdebroeks","cat":"gc","country":"Bèlgica","flag":"🇧🇪","age":0,"team":"Movistar Team","val":5,"wiki":"","wins":[]},{"id":"landa","name":"Mikel Landa","cat":"munt","country":"Espanya","flag":"🇪🇸","age":0,"team":"Soudal Quick-Step","val":6,"wiki":"","wins":[]},{"id":"riccitello","name":"Matthew Riccitello","cat":"gc","country":"EUA","flag":"🇺🇸","age":0,"team":"Decathlon CMA CGM Team","val":6,"wiki":"","wins":[]},{"id":"kuss","name":"Sepp Kuss","cat":"munt","country":"EUA","flag":"🇺🇸","age":0,"team":"Team Visma | Lease a Bike","val":6,"wiki":"","wins":[]},{"id":"dunbar","name":"Eddie Dunbar","cat":"gc","country":"Irlanda","flag":"🇮🇪","age":0,"team":"Pinarello Q36.5 Pro Cycling Team","val":5,"wiki":"","wins":[]},{"id":"onley","name":"Oscar Onley","cat":"gc","country":"Regne Unit","flag":"🇬🇧","age":0,"team":"Netcompany INEOS","val":5,"wiki":"","wins":[]},{"id":"fortu","name":"Lorenzo Fortunato","cat":"munt","country":"Itàlia","flag":"🇮🇹","age":0,"team":"XDS Astana Team","val":5,"wiki":"","wins":[]},{"id":"castrillo","name":"Pablo Castrillo","cat":"gc","country":"Espanya","flag":"🇪🇸","age":0,"team":"Movistar Team","val":4,"wiki":"","wins":[]},{"id":"hirt","name":"Jan Hirt","cat":"munt","country":"Txèquia","flag":"🇨🇿","age":0,"team":"NSN Cycling Team","val":4,"wiki":"","wins":[]},{"id":"cras","name":"Steff Cras","cat":"munt","country":"Bèlgica","flag":"🇧🇪","age":0,"team":"Soudal Quick-Step","val":4,"wiki":"","wins":[]},{"id":"paretpeintre","name":"Valentin Paret-Peintre","cat":"munt","country":"França","flag":"🇫🇷","age":0,"team":"Soudal Quick-Step","val":4,"wiki":"","wins":[]},{"id":"martin","name":"Guillaume Martin","cat":"munt","country":"França","flag":"🇫🇷","age":0,"team":"Groupama - FDJ United","val":4,"wiki":"","wins":[]},{"id":"gloag","name":"Thomas Gloag","cat":"munt","country":"Regne Unit","flag":"🇬🇧","age":0,"team":"Pinarello Q36.5 Pro Cycling Team","val":4,"wiki":"","wins":[]},{"id":"crodriguez","name":"Cristián Rodríguez","cat":"munt","country":"Espanya","flag":"🇪🇸","age":0,"team":"XDS Astana Team","val":3,"wiki":"","wins":[]},{"id":"groves","name":"Kaden Groves","cat":"sprint","country":"Austràlia","flag":"🇦🇺","age":0,"team":"Alpecin - Premier Tech","val":7,"wiki":"","wins":[]},{"id":"vanaert","name":"Wout van Aert","cat":"sprint","country":"Bèlgica","flag":"🇧🇪","age":0,"team":"Team Visma | Lease a Bike","val":8,"wiki":"","wins":[]},{"id":"pedersen","name":"Mads Pedersen","cat":"sprint","country":"Dinamarca","flag":"🇩🇰","age":0,"team":"Lidl - Trek","val":8,"wiki":"","wins":[]},{"id":"nys","name":"Thibau Nys","cat":"sprint","country":"Bèlgica","flag":"🇧🇪","age":0,"team":"Lidl - Trek","val":6,"wiki":"","wins":[]},{"id":"meeus","name":"Jordi Meeus","cat":"sprint","country":"Bèlgica","flag":"🇧🇪","age":0,"team":"Red Bull - BORA - hansgrohe","val":6,"wiki":"","wins":[]},{"id":"dainese","name":"Alberto Dainese","cat":"sprint","country":"Itàlia","flag":"🇮🇹","age":0,"team":"Soudal Quick-Step","val":4,"wiki":"","wins":[]},{"id":"coquard","name":"Bryan Coquard","cat":"sprint","country":"França","flag":"🇫🇷","age":0,"team":"Cofidis","val":5,"wiki":"","wins":[]},{"id":"aular","name":"Orluis Aular","cat":"sprint","country":"Veneçuela","flag":"🇻🇪","age":0,"team":"Movistar Team","val":5,"wiki":"","wins":[]},{"id":"albanese","name":"Vincenzo Albanese","cat":"sprint","country":"Itàlia","flag":"🇮🇹","age":0,"team":"EF Education - EasyPost","val":4,"wiki":"","wins":[]},{"id":"cort","name":"Magnus Cort","cat":"sprint","country":"Dinamarca","flag":"🇩🇰","age":0,"team":"Uno-X Mobility","val":4,"wiki":"","wins":[]},{"id":"vanboven","name":"Luca Van Boven","cat":"sprint","country":"Bèlgica","flag":"🇧🇪","age":0,"team":"Lotto Intermarché","val":3,"wiki":"","wins":[]},{"id":"hayter","name":"Ethan Hayter","cat":"sprint","country":"Regne Unit","flag":"🇬🇧","age":0,"team":"Soudal Quick-Step","val":4,"wiki":"","wins":[]},{"id":"deschuyteneer","name":"Steffen De Schuyteneer","cat":"sprint","country":"Bèlgica","flag":"🇧🇪","age":0,"team":"Lotto Intermarché","val":3,"wiki":"","wins":[]},{"id":"vantricht","name":"Floris Van Tricht","cat":"sprint","country":"Bèlgica","flag":"🇧🇪","age":0,"team":"NSN Cycling Team","val":3,"wiki":"","wins":[]},{"id":"vandenbossche","name":"Fabio Van den Bossche","cat":"sprint","country":"Bèlgica","flag":"🇧🇪","age":0,"team":"Soudal Quick-Step","val":3,"wiki":"","wins":[]}];
+
 const OUT_RIDERS=[];
 const ALL_RIDERS=[...RIDERS_POOL.gc,...RIDERS_POOL.munt,...RIDERS_POOL.sprint];
 const SELECTABLE_RIDERS=ALL_RIDERS.filter(r=>!OUT_RIDERS.includes(r));
@@ -415,45 +419,63 @@ function loadState(){try{const s=localStorage.getItem('fve26v1');if(s)return JSO
 function saveState(){try{localStorage.setItem('fve26v1',JSON.stringify(state));}catch(e){}}
 let state=loadState();
 
+async function fetchJson(path,ts){
+  const url=new URL(path,document.baseURI);
+  url.searchParams.set('t',ts);
+  const res=await fetch(url.href,{cache:'no-store'});
+  if(!res.ok)throw new Error(`${path}: HTTP ${res.status}`);
+  return res.json();
+}
+
 async function loadData(){
   const ts=Date.now();
-  try{
-    const [r1,r2,r3]=await Promise.all([
-      fetch(`data/classifications.json?t=${ts}`,{cache:'no-store'}),
-      fetch(`data/riders.json?t=${ts}`,{cache:'no-store'}),
-      fetch(`data/players.json?t=${ts}`,{cache:'no-store'})
-    ]);
-    liveData=await r1.json();
-    // Si el repo té dades buides però tenim resultats desats localment, mantenim els locals
+  let classifications=null, remoteRiders=null, remotePlayers=null;
+
+  // Carreguem cada fitxer per separat: si falla players.json, el Draft no es pot quedar bloquejat.
+  const results=await Promise.allSettled([
+    fetchJson('data/classifications.json',ts),
+    fetchJson('data/riders.json',ts),
+    fetchJson('data/players.json',ts)
+  ]);
+
+  classifications=results[0].status==='fulfilled'?results[0].value:null;
+  remoteRiders=results[1].status==='fulfilled'?results[1].value:null;
+  remotePlayers=results[2].status==='fulfilled'?results[2].value:null;
+
+  if(classifications){
+    liveData=classifications;
     const repoEmpty=!liveData||((!liveData.gc||!liveData.gc.length)&&(!liveData.stage_winners||!liveData.stage_winners.length));
     if(repoEmpty&&state.lastClassifications&&(state.lastClassifications.gc?.length||state.lastClassifications.stage_winners?.length)){
       liveData=state.lastClassifications;
     }
-    const rd=await r2.json();
-    ridersDB=rd.riders||[];
-    // Jugadors compartits: el fitxer del repo és la font de veritat per a tots els dispositius.
-    // Només es bloqueja l'adopció mentre s'està editant activament (pantalla Jugadors oberta
-    // i desbloquejada), o si el fitxer remot encara no s'ha sincronitzat mai (updated_at buit).
+  }else{
+    liveData=state.lastClassifications||{updated_at:'Sense dades',current_stage:0,gc:[],mountain:[],sprint:[],stage_winners:[],stages:[]};
+  }
+
+  // El Draft sempre té una font local de reserva, fins i tot si GitHub Pages encara no ha servit data/riders.json.
+  ridersDB=remoteRiders?.riders||FALLBACK_RIDERS;
+
+  if(remotePlayers){
     try{
-      const pd=await r3.json();
+      const pd=remotePlayers;
       const editing=state.unlocked&&document.querySelector('.screen.active')?.id==='screen-setup';
       if(pd&&Array.isArray(pd.players)&&pd.players.length&&!editing&&pd.updated_at){
         if(pd.updated_at!==(state.playersUpdatedAt||'')){
           state.players=pd.players;
           state.playersUpdatedAt=pd.updated_at;
-          saveState(); // còpia local per si es queda offline
+          saveState();
         }
       }
       window.__remotePlayersAt=pd&&pd.updated_at?pd.updated_at:null;
-    }catch(e){/* si players.json encara no existeix, es manté l'estat local */}
-  }catch(e){
-    // Sense connexió: usa les últimes classificacions desades localment si n'hi ha
-    liveData=state.lastClassifications||{updated_at:'Sense dades',current_stage:0,gc:[],mountain:[],sprint:[],stage_winners:[],stages:[]};
+    }catch(e){}
   }
+
   const dot=document.getElementById('update-dot');
   const txt=document.getElementById('update-text');
-  dot.className='update-dot'+(liveData.current_stage>0?'':' old');
-  txt.textContent=liveData.current_stage>0?`E${liveData.current_stage} · ${liveData.updated_at}`:liveData.updated_at;
+  if(dot&&txt){
+    dot.className='update-dot'+(liveData.current_stage>0?'':' old');
+    txt.textContent=liveData.current_stage>0?`E${liveData.current_stage} · ${liveData.updated_at}`:liveData.updated_at;
+  }
   refreshCurrentScreen();
 }
 
@@ -679,7 +701,8 @@ function setDraftFilter(f,btn){
 }
 function renderDraft(){
   const el=document.getElementById('draft-content');
-  if(!ridersDB.length){el.innerHTML='<div class="no-data">Carregant...</div>';return;}
+  if(!ridersDB.length)ridersDB=FALLBACK_RIDERS.slice();
+  if(!ridersDB.length){el.innerHTML='<div class="no-data">No s’han pogut carregar els corredors.</div>';return;}
   const search=(document.getElementById('draft-search')?.value||'').toLowerCase().trim();
   let list=ridersDB.filter(r=>{
     if(draftFilter!=='all'&&r.cat!==draftFilter)return false;
