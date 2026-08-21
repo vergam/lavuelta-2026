@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-21T08:30:03.559Z",
+  "updated_at": "2026-08-21T09:00:41.521Z",
   "players": [
     {
       "id": 1,
@@ -24,15 +24,15 @@
     },
     {
       "id": 4,
-      "name": "Jugador 4",
-      "gc": "",
+      "name": "Ferran",
+      "gc": "Enric Mas",
       "munt": "",
       "sprint": ""
     },
     {
       "id": 5,
-      "name": "Jugador 5",
-      "gc": "",
+      "name": "Edu",
+      "gc": "Mattias Skjelmose",
       "munt": "",
       "sprint": ""
     },
