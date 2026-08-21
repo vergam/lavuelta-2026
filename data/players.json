@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-21T21:26:25.229Z",
+  "updated_at": "2026-08-21T21:31:24.797Z",
   "players": [
     {
       "id": 1,
@@ -27,13 +27,13 @@
       "name": "Ferran",
       "gc": "Enric Mas",
       "munt": "",
-      "sprint": ""
+      "sprint": "Jordi Meeus"
     },
     {
       "id": 5,
       "name": "Edu",
       "gc": "Mattias Skjelmose",
-      "munt": "",
+      "munt": "Valentin Paret-Peintre",
       "sprint": ""
     },
     {
