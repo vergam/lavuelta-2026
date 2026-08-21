@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-21T07:35:27.095Z",
+  "updated_at": "2026-08-21T08:30:03.559Z",
   "players": [
     {
       "id": 1,
@@ -10,15 +10,15 @@
     },
     {
       "id": 2,
-      "name": "Jugador 2",
-      "gc": "",
+      "name": "Cris",
+      "gc": "Richard Carapaz",
       "munt": "",
       "sprint": ""
     },
     {
       "id": 3,
-      "name": "Jugador 3",
-      "gc": "",
+      "name": "Rut",
+      "gc": "Sepp Kuss",
       "munt": "",
       "sprint": ""
     },
