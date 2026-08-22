@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-08-21T21:33:07.360Z",
+  "updated_at": "2026-08-22T08:25:52.477Z",
   "players": [
     {
       "id": 1,
       "name": "Eric",
       "gc": "Tadej Pogačar",
-      "munt": "",
+      "munt": "Urko Berrade",
       "sprint": ""
     },
     {
@@ -13,7 +13,7 @@
       "name": "Cris",
       "gc": "Richard Carapaz",
       "munt": "",
-      "sprint": ""
+      "sprint": "Pau Miquel"
     },
     {
       "id": 3,
