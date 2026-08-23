@@ -1,7 +1,1112 @@
 {
-  "updated_at": "23/08/2026 16:35 (manual)",
+  "updated_at": "23/08/2026 16:40 (manual)",
   "current_stage": 1,
-  "gc": [],
+  "gc": [
+    {
+      "pos": 1,
+      "name": "Tadej Pogačar",
+      "team": "",
+      "value": "10:57"
+    },
+    {
+      "pos": 2,
+      "name": "Ethan Hayter",
+      "team": "",
+      "value": "+0:00"
+    },
+    {
+      "pos": 3,
+      "name": "Joshua Tarling",
+      "team": "",
+      "value": "+0:04"
+    },
+    {
+      "pos": 4,
+      "name": "Callum Thornley",
+      "team": "",
+      "value": "+0:05"
+    },
+    {
+      "pos": 5,
+      "name": "Christophe Laporte",
+      "team": "",
+      "value": "+0:06"
+    },
+    {
+      "pos": 6,
+      "name": "Léo Bisiaux",
+      "team": "",
+      "value": "+0:08"
+    },
+    {
+      "pos": 7,
+      "name": "Oscar Chamberlain",
+      "team": "",
+      "value": "+0:09"
+    },
+    {
+      "pos": 8,
+      "name": "Wout van Aert",
+      "team": "",
+      "value": "+0:09"
+    },
+    {
+      "pos": 9,
+      "name": "Finn Fisher-Black",
+      "team": "",
+      "value": "+0:10"
+    },
+    {
+      "pos": 10,
+      "name": "Arthur Kluckers",
+      "team": "",
+      "value": "+0:11"
+    },
+    {
+      "pos": 11,
+      "name": "Andrea Romele",
+      "team": "",
+      "value": "+0:13"
+    },
+    {
+      "pos": 12,
+      "name": "Stefan Küng",
+      "team": "",
+      "value": "+0:14"
+    },
+    {
+      "pos": 13,
+      "name": "Jay Vine",
+      "team": "",
+      "value": "+0:14"
+    },
+    {
+      "pos": 14,
+      "name": "Ivo Oliveira",
+      "team": "",
+      "value": "+0:14"
+    },
+    {
+      "pos": 15,
+      "name": "Mads Pedersen",
+      "team": "",
+      "value": "+0:16"
+    },
+    {
+      "pos": 16,
+      "name": "Matthew Brennan",
+      "team": "",
+      "value": "+0:16"
+    },
+    {
+      "pos": 17,
+      "name": "Sander De Pestel",
+      "team": "",
+      "value": "+0:18"
+    },
+    {
+      "pos": 18,
+      "name": "João Almeida",
+      "team": "",
+      "value": "+0:18"
+    },
+    {
+      "pos": 19,
+      "name": "Iván Romeo",
+      "team": "",
+      "value": "+0:18"
+    },
+    {
+      "pos": 20,
+      "name": "Rasmus Tiller",
+      "team": "",
+      "value": "+0:20"
+    },
+    {
+      "pos": 21,
+      "name": "Lennard Kämna",
+      "team": "",
+      "value": "+0:21"
+    },
+    {
+      "pos": 22,
+      "name": "Luke Tuckwell",
+      "team": "",
+      "value": "+0:21"
+    },
+    {
+      "pos": 23,
+      "name": "Ben Turner",
+      "team": "",
+      "value": "+0:21"
+    },
+    {
+      "pos": 24,
+      "name": "Primož Roglič",
+      "team": "",
+      "value": "+0:22"
+    },
+    {
+      "pos": 25,
+      "name": "Jordan Labrosse",
+      "team": "",
+      "value": "+0:23"
+    },
+    {
+      "pos": 26,
+      "name": "Orluis Aular",
+      "team": "",
+      "value": "+0:23"
+    },
+    {
+      "pos": 27,
+      "name": "Jasha Sütterlin",
+      "team": "",
+      "value": "+0:25"
+    },
+    {
+      "pos": 28,
+      "name": "Axel Laurance",
+      "team": "",
+      "value": "+0:26"
+    },
+    {
+      "pos": 29,
+      "name": "Victor Langellotti",
+      "team": "",
+      "value": "+0:26"
+    },
+    {
+      "pos": 30,
+      "name": "Alex Kirsch",
+      "team": "",
+      "value": "+0:26"
+    },
+    {
+      "pos": 31,
+      "name": "Lindsay De Vylder",
+      "team": "",
+      "value": "+0:27"
+    },
+    {
+      "pos": 32,
+      "name": "Enzo Paleni",
+      "team": "",
+      "value": "+0:27"
+    },
+    {
+      "pos": 33,
+      "name": "Pablo Torres",
+      "team": "",
+      "value": "+0:27"
+    },
+    {
+      "pos": 34,
+      "name": "Carlos Rodríguez",
+      "team": "",
+      "value": "+0:27"
+    },
+    {
+      "pos": 35,
+      "name": "Fabio Van den Bossche",
+      "team": "",
+      "value": "+0:28"
+    },
+    {
+      "pos": 36,
+      "name": "Marco Brenner",
+      "team": "",
+      "value": "+0:28"
+    },
+    {
+      "pos": 37,
+      "name": "Georg Steinhauser",
+      "team": "",
+      "value": "+0:28"
+    },
+    {
+      "pos": 38,
+      "name": "Tobias Halland Johannessen",
+      "team": "",
+      "value": "+0:28"
+    },
+    {
+      "pos": 39,
+      "name": "Xabier Azparren",
+      "team": "",
+      "value": "+0:29"
+    },
+    {
+      "pos": 40,
+      "name": "Mattias Skjelmose",
+      "team": "",
+      "value": "+0:29"
+    },
+    {
+      "pos": 41,
+      "name": "Alex MacKellar",
+      "team": "",
+      "value": "+0:29"
+    },
+    {
+      "pos": 42,
+      "name": "Alexis Renard",
+      "team": "",
+      "value": "+0:30"
+    },
+    {
+      "pos": 43,
+      "name": "Bastien Tronchon",
+      "team": "",
+      "value": "+0:31"
+    },
+    {
+      "pos": 44,
+      "name": "Andreas Kron",
+      "team": "",
+      "value": "+0:31"
+    },
+    {
+      "pos": 45,
+      "name": "Alexey Lutsenko",
+      "team": "",
+      "value": "+0:32"
+    },
+    {
+      "pos": 46,
+      "name": "Valentin Madouas",
+      "team": "",
+      "value": "+0:32"
+    },
+    {
+      "pos": 47,
+      "name": "Thymen de Jong",
+      "team": "",
+      "value": "+0:32"
+    },
+    {
+      "pos": 48,
+      "name": "Moritz Kretschy",
+      "team": "",
+      "value": "+0:33"
+    },
+    {
+      "pos": 49,
+      "name": "Pau Martí",
+      "team": "",
+      "value": "+0:33"
+    },
+    {
+      "pos": 50,
+      "name": "Enric Mas",
+      "team": "",
+      "value": "+0:33"
+    },
+    {
+      "pos": 51,
+      "name": "Fabian Weiss",
+      "team": "",
+      "value": "+0:33"
+    },
+    {
+      "pos": 52,
+      "name": "Richard Carapaz",
+      "team": "",
+      "value": "+0:33"
+    },
+    {
+      "pos": 53,
+      "name": "Pablo Castrillo",
+      "team": "",
+      "value": "+0:34"
+    },
+    {
+      "pos": 54,
+      "name": "Fredrik Dversnes",
+      "team": "",
+      "value": "+0:34"
+    },
+    {
+      "pos": 55,
+      "name": "Jørgen Nordhagen",
+      "team": "",
+      "value": "+0:35"
+    },
+    {
+      "pos": 56,
+      "name": "Francesco Busatto",
+      "team": "",
+      "value": "+0:36"
+    },
+    {
+      "pos": 57,
+      "name": "Filippo Zana",
+      "team": "",
+      "value": "+0:36"
+    },
+    {
+      "pos": 58,
+      "name": "Jacopo Mosca",
+      "team": "",
+      "value": "+0:36"
+    },
+    {
+      "pos": 59,
+      "name": "Harold Tejada",
+      "team": "",
+      "value": "+0:36"
+    },
+    {
+      "pos": 60,
+      "name": "Hamish McKenzie",
+      "team": "",
+      "value": "+0:36"
+    },
+    {
+      "pos": 61,
+      "name": "Ben Tulett",
+      "team": "",
+      "value": "+0:36"
+    },
+    {
+      "pos": 62,
+      "name": "William Barta",
+      "team": "",
+      "value": "+0:36"
+    },
+    {
+      "pos": 63,
+      "name": "Gianni Vermeersch",
+      "team": "",
+      "value": "+0:37"
+    },
+    {
+      "pos": 64,
+      "name": "Pavel Sivakov",
+      "team": "",
+      "value": "+0:37"
+    },
+    {
+      "pos": 65,
+      "name": "Carlos Canal",
+      "team": "",
+      "value": "+0:37"
+    },
+    {
+      "pos": 66,
+      "name": "Larry Warbasse",
+      "team": "",
+      "value": "+0:37"
+    },
+    {
+      "pos": 67,
+      "name": "Steffen De Schuyteneer",
+      "team": "",
+      "value": "+0:37"
+    },
+    {
+      "pos": 68,
+      "name": "James Shaw",
+      "team": "",
+      "value": "+0:38"
+    },
+    {
+      "pos": 69,
+      "name": "Santiago Buitrago",
+      "team": "",
+      "value": "+0:38"
+    },
+    {
+      "pos": 70,
+      "name": "Gregor Mühlberger",
+      "team": "",
+      "value": "+0:39"
+    },
+    {
+      "pos": 71,
+      "name": "Mathias Norsgaard",
+      "team": "",
+      "value": "+0:40"
+    },
+    {
+      "pos": 72,
+      "name": "Jakob Omrzel",
+      "team": "",
+      "value": "+0:40"
+    },
+    {
+      "pos": 73,
+      "name": "Andreas Leknessund",
+      "team": "",
+      "value": "+0:41"
+    },
+    {
+      "pos": 74,
+      "name": "Jack Haig",
+      "team": "",
+      "value": "+0:41"
+    },
+    {
+      "pos": 75,
+      "name": "Alberto Dainese",
+      "team": "",
+      "value": "+0:42"
+    },
+    {
+      "pos": 76,
+      "name": "Kaden Groves",
+      "team": "",
+      "value": "+0:42"
+    },
+    {
+      "pos": 77,
+      "name": "Clément Berthet",
+      "team": "",
+      "value": "+0:43"
+    },
+    {
+      "pos": 78,
+      "name": "Valentin Paret-Peintre",
+      "team": "",
+      "value": "+0:43"
+    },
+    {
+      "pos": 79,
+      "name": "Sente Sentjens",
+      "team": "",
+      "value": "+0:43"
+    },
+    {
+      "pos": 80,
+      "name": "Paul Double",
+      "team": "",
+      "value": "+0:43"
+    },
+    {
+      "pos": 81,
+      "name": "Julien Bernard",
+      "team": "",
+      "value": "+0:43"
+    },
+    {
+      "pos": 82,
+      "name": "Rudy Molard",
+      "team": "",
+      "value": "+0:44"
+    },
+    {
+      "pos": 83,
+      "name": "Raúl García Pierna",
+      "team": "",
+      "value": "+0:44"
+    },
+    {
+      "pos": 84,
+      "name": "Floris Van Tricht",
+      "team": "",
+      "value": "+0:44"
+    },
+    {
+      "pos": 85,
+      "name": "Iñigo Elosegui",
+      "team": "",
+      "value": "+0:45"
+    },
+    {
+      "pos": 86,
+      "name": "Michael Gogl",
+      "team": "",
+      "value": "+0:45"
+    },
+    {
+      "pos": 87,
+      "name": "Jordi Meeus",
+      "team": "",
+      "value": "+0:45"
+    },
+    {
+      "pos": 88,
+      "name": "Mario Aparicio",
+      "team": "",
+      "value": "+0:45"
+    },
+    {
+      "pos": 89,
+      "name": "Sepp Kuss",
+      "team": "",
+      "value": "+0:45"
+    },
+    {
+      "pos": 90,
+      "name": "Matthew Riccitello",
+      "team": "",
+      "value": "+0:46"
+    },
+    {
+      "pos": 91,
+      "name": "Felix Gall",
+      "team": "",
+      "value": "+0:46"
+    },
+    {
+      "pos": 92,
+      "name": "Pau Miquel",
+      "team": "",
+      "value": "+0:47"
+    },
+    {
+      "pos": 93,
+      "name": "Rémy Rochas",
+      "team": "",
+      "value": "+0:47"
+    },
+    {
+      "pos": 94,
+      "name": "Iker Ruiz",
+      "team": "",
+      "value": "+0:47"
+    },
+    {
+      "pos": 95,
+      "name": "Urko Berrade",
+      "team": "",
+      "value": "+0:47"
+    },
+    {
+      "pos": 96,
+      "name": "David González",
+      "team": "",
+      "value": "+0:47"
+    },
+    {
+      "pos": 97,
+      "name": "Hugo Hofstetter",
+      "team": "",
+      "value": "+0:48"
+    },
+    {
+      "pos": 98,
+      "name": "Vincenzo Albanese",
+      "team": "",
+      "value": "+0:48"
+    },
+    {
+      "pos": 99,
+      "name": "Gijs Leemreize",
+      "team": "",
+      "value": "+0:48"
+    },
+    {
+      "pos": 100,
+      "name": "Olivier Le Gac",
+      "team": "",
+      "value": "+0:48"
+    },
+    {
+      "pos": 101,
+      "name": "Einar Svestad-Bårdseng",
+      "team": "",
+      "value": "+0:48"
+    },
+    {
+      "pos": 102,
+      "name": "Martí Brustenga",
+      "team": "",
+      "value": "+0:48"
+    },
+    {
+      "pos": 103,
+      "name": "Milan Vader",
+      "team": "",
+      "value": "+0:49"
+    },
+    {
+      "pos": 104,
+      "name": "Timo Roosen",
+      "team": "",
+      "value": "+0:49"
+    },
+    {
+      "pos": 105,
+      "name": "Roel van Sintmaartensdijk",
+      "team": "",
+      "value": "+0:49"
+    },
+    {
+      "pos": 106,
+      "name": "Oscar Onley",
+      "team": "",
+      "value": "+0:50"
+    },
+    {
+      "pos": 107,
+      "name": "Koen Bouwman",
+      "team": "",
+      "value": "+0:50"
+    },
+    {
+      "pos": 108,
+      "name": "Lennert Cras",
+      "team": "",
+      "value": "+0:50"
+    },
+    {
+      "pos": 109,
+      "name": "Finlay Pickering",
+      "team": "",
+      "value": "+0:50"
+    },
+    {
+      "pos": 110,
+      "name": "George Bennett",
+      "team": "",
+      "value": "+0:50"
+    },
+    {
+      "pos": 111,
+      "name": "Markel Beloki",
+      "team": "",
+      "value": "+0:50"
+    },
+    {
+      "pos": 112,
+      "name": "Ramses Debruyne",
+      "team": "",
+      "value": "+0:50"
+    },
+    {
+      "pos": 113,
+      "name": "Reuben Porter",
+      "team": "",
+      "value": "+0:51"
+    },
+    {
+      "pos": 114,
+      "name": "Henri Renard",
+      "team": "",
+      "value": "+0:51"
+    },
+    {
+      "pos": 115,
+      "name": "Lucas Hamilton",
+      "team": "",
+      "value": "+0:51"
+    },
+    {
+      "pos": 116,
+      "name": "Patrick Konrad",
+      "team": "",
+      "value": "+0:52"
+    },
+    {
+      "pos": 117,
+      "name": "Roland Thalmann",
+      "team": "",
+      "value": "+0:52"
+    },
+    {
+      "pos": 118,
+      "name": "David de la Cruz",
+      "team": "",
+      "value": "+0:52"
+    },
+    {
+      "pos": 119,
+      "name": "Guillaume Martin-Guyonnet",
+      "team": "",
+      "value": "+0:52"
+    },
+    {
+      "pos": 120,
+      "name": "Mattia Gaffuri",
+      "team": "",
+      "value": "+0:53"
+    },
+    {
+      "pos": 121,
+      "name": "Simon Dalby",
+      "team": "",
+      "value": "+0:53"
+    },
+    {
+      "pos": 122,
+      "name": "Gianmarco Garofoli",
+      "team": "",
+      "value": "+0:54"
+    },
+    {
+      "pos": 123,
+      "name": "Cian Uijtdebroeks",
+      "team": "",
+      "value": "+0:54"
+    },
+    {
+      "pos": 124,
+      "name": "Thomas Gloag",
+      "team": "",
+      "value": "+0:54"
+    },
+    {
+      "pos": 125,
+      "name": "Yevgeniy Fedorov",
+      "team": "",
+      "value": "+0:54"
+    },
+    {
+      "pos": 126,
+      "name": "Diego Uriarte",
+      "team": "",
+      "value": "+0:54"
+    },
+    {
+      "pos": 127,
+      "name": "Nick Schultz",
+      "team": "",
+      "value": "+0:55"
+    },
+    {
+      "pos": 128,
+      "name": "Gianni Moscon",
+      "team": "",
+      "value": "+0:55"
+    },
+    {
+      "pos": 129,
+      "name": "Jarno Widar",
+      "team": "",
+      "value": "+0:55"
+    },
+    {
+      "pos": 130,
+      "name": "Vlad Van Mechelen Braet",
+      "team": "",
+      "value": "+0:55"
+    },
+    {
+      "pos": 131,
+      "name": "Callum Scotson",
+      "team": "",
+      "value": "+0:56"
+    },
+    {
+      "pos": 132,
+      "name": "Bryan Coquard",
+      "team": "",
+      "value": "+0:56"
+    },
+    {
+      "pos": 133,
+      "name": "Anders Hellemos",
+      "team": "",
+      "value": "+0:56"
+    },
+    {
+      "pos": 134,
+      "name": "Frederik Wandahl",
+      "team": "",
+      "value": "+0:56"
+    },
+    {
+      "pos": 135,
+      "name": "Roman Ermakov",
+      "team": "",
+      "value": "+0:56"
+    },
+    {
+      "pos": 136,
+      "name": "Mats Wenzel",
+      "team": "",
+      "value": "+0:57"
+    },
+    {
+      "pos": 137,
+      "name": "Eddie Dunbar",
+      "team": "",
+      "value": "+0:57"
+    },
+    {
+      "pos": 138,
+      "name": "Attila Valter",
+      "team": "",
+      "value": "+0:57"
+    },
+    {
+      "pos": 139,
+      "name": "Walter Calzoni",
+      "team": "",
+      "value": "+0:57"
+    },
+    {
+      "pos": 140,
+      "name": "Hugo Houle",
+      "team": "",
+      "value": "+0:58"
+    },
+    {
+      "pos": 141,
+      "name": "Alessandro Covi",
+      "team": "",
+      "value": "+0:59"
+    },
+    {
+      "pos": 142,
+      "name": "Hannes Wilksch",
+      "team": "",
+      "value": "+0:59"
+    },
+    {
+      "pos": 143,
+      "name": "Cristián Rodríguez",
+      "team": "",
+      "value": "+1:00"
+    },
+    {
+      "pos": 144,
+      "name": "Magnus Cort",
+      "team": "",
+      "value": "+1:01"
+    },
+    {
+      "pos": 145,
+      "name": "Ibon Ruiz",
+      "team": "",
+      "value": "+1:01"
+    },
+    {
+      "pos": 146,
+      "name": "Steven Kruijswijk",
+      "team": "",
+      "value": "+1:01"
+    },
+    {
+      "pos": 147,
+      "name": "Bruno Armirail",
+      "team": "",
+      "value": "+1:01"
+    },
+    {
+      "pos": 148,
+      "name": "Lorenzo Rota",
+      "team": "",
+      "value": "+1:02"
+    },
+    {
+      "pos": 149,
+      "name": "Luca Van Boven",
+      "team": "",
+      "value": "+1:02"
+    },
+    {
+      "pos": 150,
+      "name": "Jan Hirt",
+      "team": "",
+      "value": "+1:03"
+    },
+    {
+      "pos": 151,
+      "name": "Gal Glivar",
+      "team": "",
+      "value": "+1:03"
+    },
+    {
+      "pos": 152,
+      "name": "Jorge Arcas",
+      "team": "",
+      "value": "+1:04"
+    },
+    {
+      "pos": 153,
+      "name": "Carlos Canal Alleno",
+      "team": "",
+      "value": "+1:04"
+    },
+    {
+      "pos": 154,
+      "name": "Oscar Onley Peace",
+      "team": "",
+      "value": "+1:05"
+    },
+    {
+      "pos": 155,
+      "name": "Henok Mulueberhan",
+      "team": "",
+      "value": "+1:05"
+    },
+    {
+      "pos": 156,
+      "name": "Paul Ourselin",
+      "team": "",
+      "value": "+1:06"
+    },
+    {
+      "pos": 157,
+      "name": "Matevž Govekar",
+      "team": "",
+      "value": "+1:07"
+    },
+    {
+      "pos": 158,
+      "name": "Reuben Thompson",
+      "team": "",
+      "value": "+1:08"
+    },
+    {
+      "pos": 159,
+      "name": "Kevin Vermaerke",
+      "team": "",
+      "value": "+1:08"
+    },
+    {
+      "pos": 160,
+      "name": "Loïc Rouland",
+      "team": "",
+      "value": "+1:08"
+    },
+    {
+      "pos": 161,
+      "name": "Mauri Vansevenant",
+      "team": "",
+      "value": "+1:10"
+    },
+    {
+      "pos": 162,
+      "name": "Sylvain Moniquet",
+      "team": "",
+      "value": "+1:10"
+    },
+    {
+      "pos": 163,
+      "name": "Marcel Camprubí",
+      "team": "",
+      "value": "+1:11"
+    },
+    {
+      "pos": 164,
+      "name": "Thibau Nys",
+      "team": "",
+      "value": "+1:12"
+    },
+    {
+      "pos": 165,
+      "name": "Pello Bilbao",
+      "team": "",
+      "value": "+1:13"
+    },
+    {
+      "pos": 166,
+      "name": "Mikel Landa",
+      "team": "",
+      "value": "+1:14"
+    },
+    {
+      "pos": 167,
+      "name": "Mathijs Paasschens",
+      "team": "",
+      "value": "+1:16"
+    },
+    {
+      "pos": 168,
+      "name": "Darren van Bekkum",
+      "team": "",
+      "value": "+1:16"
+    },
+    {
+      "pos": 169,
+      "name": "Martin Tjøtta",
+      "team": "",
+      "value": "+1:16"
+    },
+    {
+      "pos": 170,
+      "name": "Sinuhé Fernández",
+      "team": "",
+      "value": "+1:18"
+    },
+    {
+      "pos": 171,
+      "name": "Darren Rafferty",
+      "team": "",
+      "value": "+1:18"
+    },
+    {
+      "pos": 172,
+      "name": "Sergio Samitier",
+      "team": "",
+      "value": "+1:20"
+    },
+    {
+      "pos": 173,
+      "name": "Sergio Chumil",
+      "team": "",
+      "value": "+1:24"
+    },
+    {
+      "pos": 174,
+      "name": "José Luis Faura",
+      "team": "",
+      "value": "+1:25"
+    },
+    {
+      "pos": 175,
+      "name": "Emanuel Buchmann",
+      "team": "",
+      "value": "+1:25"
+    },
+    {
+      "pos": 176,
+      "name": "Lorenzo Fortunato",
+      "team": "",
+      "value": "+1:25"
+    },
+    {
+      "pos": 177,
+      "name": "Jefferson Alexander Rodríguez",
+      "team": "",
+      "value": "+1:26"
+    },
+    {
+      "pos": 178,
+      "name": "Guillermo Martínez",
+      "team": "",
+      "value": "+1:28"
+    },
+    {
+      "pos": 179,
+      "name": "Domen Novak",
+      "team": "",
+      "value": "+1:31"
+    },
+    {
+      "pos": 180,
+      "name": "Jesús Herrada",
+      "team": "",
+      "value": "+1:35"
+    },
+    {
+      "pos": 181,
+      "name": "César Macías",
+      "team": "",
+      "value": "+1:35"
+    },
+    {
+      "pos": 182,
+      "name": "Christopher Hamilton",
+      "team": "",
+      "value": "+1:37"
+    },
+    {
+      "pos": 183,
+      "name": "José Manuel Díaz",
+      "team": "",
+      "value": "+1:37"
+    },
+    {
+      "pos": 184,
+      "name": "Iván Sosa",
+      "team": "",
+      "value": "+1:57"
+    }
+  ],
   "mountain": [],
   "sprint": [],
   "stage_winners": [
