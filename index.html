@@ -969,65 +969,78 @@ function parseLines(id){return (document.getElementById(id)?.value||'').split('\
 // Enfocament BLOC A BLOC: cada corredor és un bloc que comença amb la seva posició (número sol).
 // Dins del bloc: el nom és la línia "X. COGNOM" o "Nom Cognom"; el valor és el temps o els punts.
 function extractRidersFromRows(id){
-  const rawText=(document.getElementById(id)?.value||'').replace(/\u00a0/g,' ');
-  const lines=rawText.split('\n').map(s=>s.trim()).filter(l=>l&&l!=='-');
-  const teamWords=/team|cycling|pro cyc|uae|ineos|visma|bora|hansgrohe|trek|movistar|astana|cofidis|groupama|alpecin|soudal|jayco|picnic|bahrain|education|tudor|caja|rural|lotto|uno-x|totalenergies|nsn|premier|emirates|quick-step|fdj|easypost|mobility|seguros|q36|intermarche|postnl|lease a bike|xds|xrg/i;
-  const headerRe=/^(riders?|time|temps|points|punts|rnk|rank|pos|gc|name|equip|équipe|equipo|hansen)([\s\t].*)?$/i;
-  const isPosLine=s=>/^\d{1,3}$/.test(s);
-  const timeRe=/([+\-]?\s*\d{1,2}h\s*\d{1,2}'\s*\d{1,2}''?)|([+\-]?\d{1,2}:\d{2}(:\d{2})?)/;
-  const looksLikeName=s=>{
-    const c=s.replace(/\s{2,}/g,' ').trim();
-    if(teamWords.test(c))return false;
-    return /^[A-Za-zÀ-ÿ]\.\s*[A-Za-zÀ-ÿ]/.test(c) || /^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'’\-]+(\s+[A-Za-zÀ-ÿ'’\-]+){1,3}$/.test(c);
-  };
-  const fmtTime=t=>{
-    t=t.replace(/\s+/g,' ').trim();
-    const hm=t.match(/([+\-]?)\s*(\d{1,2})h\s*(\d{1,2})'\s*(\d{1,2})/);
-    if(hm){const h=+hm[2],mn=+hm[3],sc=+hm[4];
-      if(hm[1]==='+')return '+'+(h>0?h+':'+String(mn).padStart(2,'0'):mn)+':'+String(sc).padStart(2,'0');
-      return (h>0?h+'h':'')+String(mn).padStart(2,'0')+':'+String(sc).padStart(2,'0');}
-    return t;
-  };
-  // 1) Parteix en blocs: cada línia de posició (número sol) obre un bloc nou
-  const blocks=[];let cur=null;
-  for(const line of lines){
-    if(headerRe.test(line)&&line.length<40&&!/^\d/.test(line))continue;
-    if(isPosLine(line)){ if(cur)blocks.push(cur); cur=[]; continue; }
-    if(cur)cur.push(line);
-  }
-  if(cur)blocks.push(cur);
-  // 2) De cada bloc, extreu nom + valor
-  const usedPool=new Set();
-  const matchToPool=name=>{for(const pr of ALL_RIDERS){if(usedPool.has(pr))continue;if(matchRider(pr,[{name}])>=0){usedPool.add(pr);return pr;}}return name;};
-  const results=[];
-  for(const block of blocks){
-    // nom: preferim una línia amb inicial "X. COGNOM"; si no, la primera que sembli nom
-    let nameLine=block.find(l=>/^[A-Za-zÀ-ÿ]\.\s*[A-Za-zÀ-ÿ]/.test(l)&&!teamWords.test(l))
-              || block.find(l=>looksLikeName(l));
-    if(!nameLine)continue;
-    const cleanNm=nameLine.replace(/\t.*$/,'').replace(/B\s*:.*/,'').replace(/\s{2,}/g,' ').trim();
-    // valor: busca PUNTS ("5 PTS"/"1 PT") o TEMPS a tot el bloc
-    let value='';
-    for(const l of block){
-      const pts=l.match(/(\d{1,3})\s*(pts?|punts?)\b/i);
-      if(pts){value=pts[1]+' pts';break;}
-    }
-    if(!value){
-      // temps: agafa el gap (segon temps de la línia d'equip, o "+..." )
-      for(const l of block){
-        const times=l.match(new RegExp(timeRe.source,'g'));
-        if(times&&times.length>=2){value=fmtTime(times[1]);break;}
-        if(times&&times.length===1){value=fmtTime(times[0]);break;}
+  const rawText = (document.getElementById(id)?.value || '')
+    .replace(/\u00a0/g, ' ')
+    .trim();
+
+  if (!rawText) return [];
+
+  const lines = rawText
+    .split('\n')
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  const results = [];
+  const usedPool = new Set();
+
+  const matchToPool = name => {
+    for (const pr of ALL_RIDERS) {
+      if (usedPool.has(pr)) continue;
+
+      if (matchRider(pr, [{ name }]) >= 0) {
+        usedPool.add(pr);
+        return pr;
       }
     }
-    if(!value){
-      // punts sense "pts": número solt darrere de la línia d'equip o en línia pròpia
-      const teamLine=block.find(l=>teamWords.test(l));
-      if(teamLine){const nm=teamLine.match(/\t\s*(\d{1,3})\b/)||teamLine.match(/\s(\d{1,3})\s*$/);if(nm)value=nm[1]+' pts';}
-      if(!value){const solo=block.find(l=>/^\d{1,3}$/.test(l));if(solo)value=solo+' pts';}
+
+    return name;
+  };
+
+  for (const line of lines) {
+
+    // Format:
+    // 1. Tadej Pogačar 10:57
+    // 2. Ethan Hayter +0:00
+    // 40. Mattias Skjelmose +0:29
+
+    const direct = line.match(
+      /^(\d{1,3})\.\s+(.+?)\s+(\+?\d{1,2}:\d{2}(?::\d{2})?)$/
+    );
+
+    if (direct) {
+      const pos = parseInt(direct[1], 10);
+      const name = direct[2].trim();
+      const value = direct[3].trim();
+
+      results.push({
+        pos,
+        name: matchToPool(name),
+        team: '',
+        value
+      });
+
+      continue;
     }
-    results.push({pos:results.length+1,name:matchToPool(cleanNm),team:'',value});
+
+    // Format alternatiu amb punts
+    const points = line.match(
+      /^(\d{1,3})\.\s+(.+?)\s+(\d+(?:[.,]\d+)?)\s*(?:pts?|punts?)$/i
+    );
+
+    if (points) {
+      const pos = parseInt(points[1], 10);
+      const name = points[2].trim();
+      const value = points[3].trim();
+
+      results.push({
+        pos,
+        name: matchToPool(name),
+        team: '',
+        value
+      });
+    }
   }
+
   return results;
 }
 async function saveManualResults(){
