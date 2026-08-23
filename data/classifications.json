@@ -1,9 +1,14 @@
 {
-  "updated_at": "23/08/2026 09:35 (manual)",
-  "current_stage": 0,
+  "updated_at": "23/08/2026 09:36 (manual)",
+  "current_stage": 1,
   "gc": [],
   "mountain": [],
   "sprint": [],
-  "stage_winners": [],
+  "stage_winners": [
+    {
+      "stage": "1",
+      "winner": "Tadej Pogacar"
+    }
+  ],
   "scrape_status": "manual"
 }
