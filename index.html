@@ -9,7 +9,7 @@
 <title>Fantasy Vuelta 2026</title>
 <script>
 const APP_VERSION="Vuelta26-v2";
-window.APP_VERSION='v29';</script>
+window.APP_VERSION='v30';</script>
 <style>
 :root{--jaune:#FFD700;--vert:#2E7D32;--rouge:#C62828;--bg:#FAFAF8;--bg2:#F2F1ED;--border:#E0DFD8;--text:#1A1A1A;--muted:#6B6B6B;--white:#FFFFFF;--r:10px;}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
@@ -965,20 +965,66 @@ async function pushFileToGitHub(path,obj){
   if(!putRes.ok){const err=await putRes.json().catch(()=>({}));throw new Error(err.message||`Error ${putRes.status} en desar a GitHub.`);}
 }
 function parseLines(id){return (document.getElementById(id)?.value||'').split('\n').map(s=>s.trim()).filter(Boolean);}
-// Extreu {name, value} de classificacions enganxades de qualsevol web.
-// Enfocament BLOC A BLOC: cada corredor és un bloc que comença amb la seva posició (número sol).
-// Dins del bloc: el nom és la línia "X. COGNOM" o "Nom Cognom"; el valor és el temps o els punts.
+// Formata un temps de diferència tipus "+ 00h 03' 21''" (format oficial lavuelta.es) a "+3'21''".
+function formatGCGap(raw){
+  if(!raw)return'';
+  raw=raw.trim();
+  if(raw===''||raw==='-')return'';
+  const sign=raw.startsWith('-')?'-':'+';
+  const m=raw.match(/(\d+)h\s*(\d+)'\s*(\d+)''/);
+  if(!m)return raw.replace(/^\+\s*/,'+');
+  const h=parseInt(m[1],10);
+  return sign+(h>0?`${h}h${m[2]}'${m[3]}''`:`${m[2]}'${m[3]}''`);
+}
+// Extreu {pos, name, team, value} de classificacions enganxades de qualsevol web.
+// Suporta 2 formats:
+//  A) Format compacte "1. Nom +0:08" o "1. Nom 12 pts" (una línia per corredor)
+//  B) Format oficial lavuelta.es enganxat tal qual: bloc per corredor amb el número de
+//     posició sol en una línia, després el nom (curt tipus "T. POGACAR", de vegades amb
+//     el nom complet abans pels 3 primers), i finalment una línia amb tabuladors:
+//     EQUIP <tab> temps total <tab> diferència <tab> bonificació <tab> altres
 function extractRidersFromRows(id){
   const rawText=(document.getElementById(id)?.value||'').replace(/\u00a0/g,' ').trim();
   if(!rawText)return[];
   const lines=rawText.split('\n').map(s=>s.trim()).filter(Boolean);
   const results=[]; const usedPool=new Set();
   const matchToPool=name=>{for(const pr of ALL_RIDERS){if(usedPool.has(pr))continue;if(matchRider(pr,[{name}])>=0){usedPool.add(pr);return pr;}}return name;};
-  for(const line of lines){
+  let i=0;
+  while(i<lines.length){
+    const line=lines[i];
+    // Format A1: "1. Nom +0:08"
     const direct=line.match(/^(\d{1,3})\.\s+(.+?)\s+(\+?\d{1,2}:\d{2}(?::\d{2})?)$/);
-    if(direct){results.push({pos:parseInt(direct[1],10),name:matchToPool(direct[2].trim()),team:'',value:direct[3].trim()});continue;}
+    if(direct){results.push({pos:parseInt(direct[1],10),name:matchToPool(direct[2].trim()),team:'',value:direct[3].trim()});i++;continue;}
+    // Format A2: "1. Nom 12 pts"
     const points=line.match(/^(\d{1,3})\.\s+(.+?)\s+(\d+(?:[.,]\d+)?)\s*(?:pts?|punts?)$/i);
-    if(points){results.push({pos:parseInt(points[1],10),name:matchToPool(points[2].trim()),team:'',value:points[3].trim()+' pts'});continue;}
+    if(points){results.push({pos:parseInt(points[1],10),name:matchToPool(points[2].trim()),team:'',value:points[3].trim()+' pts'});i++;continue;}
+    // Format B: bloc oficial lavuelta.es — línia amb NOMÉS el número de posició
+    if(/^\d{1,3}$/.test(line)){
+      const pos=parseInt(line,10);
+      let j=i+1;
+      const nameLines=[];
+      let dataLine=null;
+      while(j<lines.length){
+        const l2=lines[j];
+        if(l2.includes('\t')){dataLine=l2;j++;break;}
+        if(/^\d{1,3}$/.test(l2))break; // comença el bloc següent sense haver trobat la línia de dades
+        nameLines.push(l2);
+        j++;
+      }
+      if(dataLine&&nameLines.length){
+        // La línia de nom més propera a les dades és sempre el format curt ("T. POGACAR"),
+        // present a tots els corredors (el nom complet només surt als 3 primers).
+        const name=nameLines[nameLines.length-1];
+        const cols=dataLine.split('\t').map(s=>s.trim());
+        const team=cols[0]||'';
+        const totalTime=cols[1]||'';
+        const gap=formatGCGap(cols[2]||'');
+        const value=gap||(totalTime?'Líder':'');
+        results.push({pos,name:matchToPool(name),team,value});
+        i=j;continue;
+      }
+    }
+    i++;
   }
   return results;
 }
