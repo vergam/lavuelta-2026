@@ -1,6 +1,6 @@
 {
-  "updated_at": "27/08/2026 00:00 (manual)",
-  "current_stage": 1,
+  "updated_at": "27/08/2026 00:04 (manual)",
+  "current_stage": 4,
   "gc": [
     {
       "pos": 1,
@@ -1083,12 +1083,422 @@
       "value": "+54'04''"
     }
   ],
-  "mountain": [],
-  "sprint": [],
+  "mountain": [
+    {
+      "pos": 1,
+      "name": "Tadej Pogačar",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "Líder"
+    },
+    {
+      "pos": 2,
+      "name": "J. BRENNAN",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "Líder"
+    },
+    {
+      "pos": 3,
+      "name": "Ethan Hayter",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "Líder"
+    },
+    {
+      "pos": 4,
+      "name": "C. LAPORTE",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "Líder"
+    },
+    {
+      "pos": 5,
+      "name": "Wout van Aert",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "Líder"
+    },
+    {
+      "pos": 6,
+      "name": "P. MIQUEL DELGADO",
+      "team": "BAHRAIN VICTORIOUS",
+      "value": "Líder"
+    },
+    {
+      "pos": 7,
+      "name": "A. LAURANCE",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 8,
+      "name": "L. BISIAUX",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 9,
+      "name": "Jordi Meeus",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "Líder"
+    },
+    {
+      "pos": 10,
+      "name": "J. TARLING",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 11,
+      "name": "A. ROMELE",
+      "team": "XDS ASTANA TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 12,
+      "name": "Oscar Onley",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 13,
+      "name": "Vincenzo Albanese",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "Líder"
+    },
+    {
+      "pos": 14,
+      "name": "G. Mühlberger",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 15,
+      "name": "Ramses Debruyne",
+      "team": "ALPECIN-PREMIER TECH",
+      "value": "Líder"
+    },
+    {
+      "pos": 16,
+      "name": "H. HOFSTETTER",
+      "team": "NSN CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 17,
+      "name": "Finn Fisher-Black",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "Líder"
+    },
+    {
+      "pos": 18,
+      "name": "Mads Pedersen",
+      "team": "LIDL-TREK",
+      "value": "Líder"
+    },
+    {
+      "pos": 19,
+      "name": "Jarno Widar",
+      "team": "LOTTO INTERMARCHE",
+      "value": "Líder"
+    },
+    {
+      "pos": 20,
+      "name": "Bryan Coquard",
+      "team": "COFIDIS",
+      "value": "Líder"
+    },
+    {
+      "pos": 21,
+      "name": "Felix Gall",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 22,
+      "name": "Tobias Halland Johannessen",
+      "team": "UNO-X MOBILITY",
+      "value": "Líder"
+    },
+    {
+      "pos": 23,
+      "name": "B. ARMIRAIL",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "Líder"
+    },
+    {
+      "pos": 24,
+      "name": "V. BRAET",
+      "team": "LOTTO INTERMARCHE",
+      "value": "Líder"
+    },
+    {
+      "pos": 25,
+      "name": "E. SVESTAD-BÅRDSENG",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 26,
+      "name": "Alberto Dainese",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "Líder"
+    },
+    {
+      "pos": 27,
+      "name": "C. THORNLEY",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "Líder"
+    },
+    {
+      "pos": 28,
+      "name": "D. GONZALEZ LOPEZ",
+      "team": "PINARELLO-Q36.5 PRO CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 29,
+      "name": "Sepp Kuss",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "Líder"
+    },
+    {
+      "pos": 30,
+      "name": "Enric Mas",
+      "team": "MOVISTAR TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 31,
+      "name": "A. HELLEMOSE",
+      "team": "TEAM JAYCO ALULA",
+      "value": "Líder"
+    },
+    {
+      "pos": 32,
+      "name": "Primož Roglič",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "Líder"
+    },
+    {
+      "pos": 33,
+      "name": "A. CHAMBERLAIN",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 34,
+      "name": "Richard Carapaz",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "Líder"
+    },
+    {
+      "pos": 35,
+      "name": "Jay Vine",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "Líder"
+    },
+    {
+      "pos": 36,
+      "name": "Mattias Skjelmose",
+      "team": "LIDL-TREK",
+      "value": "Líder"
+    },
+    {
+      "pos": 37,
+      "name": "B. TULETT",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "Líder"
+    },
+    {
+      "pos": 38,
+      "name": "A. KLUCKERS",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 39,
+      "name": "B. TRONCHON",
+      "team": "GROUPAMA-FDJ UNITED",
+      "value": "Líder"
+    },
+    {
+      "pos": 40,
+      "name": "S. KÜNG",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 41,
+      "name": "H. TEJADA",
+      "team": "XDS ASTANA TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 42,
+      "name": "Rasmus Tiller",
+      "team": "UNO-X MOBILITY",
+      "value": "Líder"
+    },
+    {
+      "pos": 43,
+      "name": "P. TORRES ARIAS",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "Líder"
+    },
+    {
+      "pos": 44,
+      "name": "H. MULUEBERHAN",
+      "team": "XDS ASTANA TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 45,
+      "name": "I. OLIVEIRA",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "Líder"
+    },
+    {
+      "pos": 46,
+      "name": "M. BRENNER",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 47,
+      "name": "O. AULAR SANABRIA",
+      "team": "MOVISTAR TEAM",
+      "value": "P : 8"
+    }
+  ],
+  "sprint": [
+    {
+      "pos": 1,
+      "name": "Tadej Pogačar",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "Líder"
+    },
+    {
+      "pos": 2,
+      "name": "Lorenzo Fortunato",
+      "team": "XDS ASTANA TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 3,
+      "name": "K. BOUWMAN",
+      "team": "TEAM JAYCO ALULA",
+      "value": "Líder"
+    },
+    {
+      "pos": 4,
+      "name": "Sepp Kuss",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "Líder"
+    },
+    {
+      "pos": 5,
+      "name": "Richard Carapaz",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "Líder"
+    },
+    {
+      "pos": 6,
+      "name": "Paul Double",
+      "team": "TEAM JAYCO ALULA",
+      "value": "Líder"
+    },
+    {
+      "pos": 7,
+      "name": "Felix Gall",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 8,
+      "name": "Enric Mas",
+      "team": "MOVISTAR TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 9,
+      "name": "Oscar Onley",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 10,
+      "name": "E. SVESTAD-BÅRDSENG",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 11,
+      "name": "I. SOSA",
+      "team": "EQUIPO KERN PHARMA",
+      "value": "Líder"
+    },
+    {
+      "pos": 12,
+      "name": "D. URIARTE BELZUNEGI",
+      "team": "EQUIPO KERN PHARMA",
+      "value": "Líder"
+    },
+    {
+      "pos": 13,
+      "name": "P. SIVAKOV",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "Líder"
+    },
+    {
+      "pos": 14,
+      "name": "H. TEJADA",
+      "team": "XDS ASTANA TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 15,
+      "name": "Pablo Castrillo",
+      "team": "MOVISTAR TEAM",
+      "value": "Líder"
+    },
+    {
+      "pos": 16,
+      "name": "Jay Vine",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "Líder"
+    },
+    {
+      "pos": 17,
+      "name": "B. TULETT",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "Líder"
+    },
+    {
+      "pos": 18,
+      "name": "Ethan Hayter",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "Líder"
+    },
+    {
+      "pos": 19,
+      "name": "S. FERNANDEZ RODRIGUEZ",
+      "team": "BURGOS-BURPELLET-BH",
+      "value": "Líder"
+    }
+  ],
   "stage_winners": [
     {
       "stage": "1",
       "winner": "Tadej Pogacar"
+    },
+    {
+      "stage": "2",
+      "winner": "James Matthew Brennan"
+    },
+    {
+      "stage": "4",
+      "winner": "Tadej Pogacar"
+    },
+    {
+      "stage": "5",
+      "winner": "James Matthew Brennan"
     }
   ],
   "scrape_status": "manual"
