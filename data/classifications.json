@@ -1,7 +1,1088 @@
 {
-  "updated_at": "26/08/2026 23:53 (manual)",
+  "updated_at": "27/08/2026 00:00 (manual)",
   "current_stage": 1,
-  "gc": [],
+  "gc": [
+    {
+      "pos": 1,
+      "name": "Tadej Pogačar",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "Líder"
+    },
+    {
+      "pos": 2,
+      "name": "Primož Roglič",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "+03'21''"
+    },
+    {
+      "pos": 3,
+      "name": "Enric Mas",
+      "team": "MOVISTAR TEAM",
+      "value": "+03'32''"
+    },
+    {
+      "pos": 4,
+      "name": "Sepp Kuss",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "+03'44''"
+    },
+    {
+      "pos": 5,
+      "name": "Oscar Onley",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "+03'45''"
+    },
+    {
+      "pos": 6,
+      "name": "Richard Carapaz",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "+03'50''"
+    },
+    {
+      "pos": 7,
+      "name": "Felix Gall",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "+03'57''"
+    },
+    {
+      "pos": 8,
+      "name": "Mattias Skjelmose",
+      "team": "LIDL-TREK",
+      "value": "+04'06''"
+    },
+    {
+      "pos": 9,
+      "name": "Jarno Widar",
+      "team": "LOTTO INTERMARCHE",
+      "value": "+04'06''"
+    },
+    {
+      "pos": 10,
+      "name": "Jay Vine",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "+04'11''"
+    },
+    {
+      "pos": 11,
+      "name": "G. Mühlberger",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "+04'34''"
+    },
+    {
+      "pos": 12,
+      "name": "Ramses Debruyne",
+      "team": "ALPECIN-PREMIER TECH",
+      "value": "+04'44''"
+    },
+    {
+      "pos": 13,
+      "name": "P. TORRES ARIAS",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "+05'27''"
+    },
+    {
+      "pos": 14,
+      "name": "H. TEJADA",
+      "team": "XDS ASTANA TEAM",
+      "value": "+05'30''"
+    },
+    {
+      "pos": 15,
+      "name": "M. BRENNER",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "+06'02''"
+    },
+    {
+      "pos": 16,
+      "name": "C. BERTHET",
+      "team": "GROUPAMA-FDJ UNITED",
+      "value": "+07'32''"
+    },
+    {
+      "pos": 17,
+      "name": "I. RUIZ SEDANO",
+      "team": "EQUIPO KERN PHARMA",
+      "value": "+08'37''"
+    },
+    {
+      "pos": 18,
+      "name": "L. BISIAUX",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "+08'44''"
+    },
+    {
+      "pos": 19,
+      "name": "B. TULETT",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "+08'44''"
+    },
+    {
+      "pos": 20,
+      "name": "J. OMRZEL",
+      "team": "BAHRAIN VICTORIOUS",
+      "value": "+09'17''"
+    },
+    {
+      "pos": 21,
+      "name": "Guillaume Martin-Guyonnet",
+      "team": "GROUPAMA-FDJ UNITED",
+      "value": "+09'25''"
+    },
+    {
+      "pos": 22,
+      "name": "Jørgen Nordhagen",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "+09'26''"
+    },
+    {
+      "pos": 23,
+      "name": "Jan Hirt",
+      "team": "NSN CYCLING TEAM",
+      "value": "+09'47''"
+    },
+    {
+      "pos": 24,
+      "name": "Carlos Rodríguez",
+      "team": "XDS ASTANA TEAM",
+      "value": "+09'51''"
+    },
+    {
+      "pos": 25,
+      "name": "X. PICKERING",
+      "team": "TEAM JAYCO ALULA",
+      "value": "+09'54''"
+    },
+    {
+      "pos": 26,
+      "name": "E. SVESTAD-BÅRDSENG",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "+10'52''"
+    },
+    {
+      "pos": 27,
+      "name": "Mikel Landa",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "+11'31''"
+    },
+    {
+      "pos": 28,
+      "name": "Matthew Riccitello",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "+12'09''"
+    },
+    {
+      "pos": 29,
+      "name": "J. RODRIGUEZ CONTRERAS",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "+12'49''"
+    },
+    {
+      "pos": 30,
+      "name": "Tobias Halland Johannessen",
+      "team": "UNO-X MOBILITY",
+      "value": "+13'43''"
+    },
+    {
+      "pos": 31,
+      "name": "U. BERRADE FERNANDEZ",
+      "team": "EQUIPO KERN PHARMA",
+      "value": "+14'20''"
+    },
+    {
+      "pos": 32,
+      "name": "W. BARTA",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "+14'41''"
+    },
+    {
+      "pos": 33,
+      "name": "P. SIVAKOV",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "+15'00''"
+    },
+    {
+      "pos": 34,
+      "name": "Thomas Gloag",
+      "team": "PINARELLO-Q36.5 PRO CYCLING TEAM",
+      "value": "+15'17''"
+    },
+    {
+      "pos": 35,
+      "name": "Eddie Dunbar",
+      "team": "PINARELLO-Q36.5 PRO CYCLING TEAM",
+      "value": "+15'33''"
+    },
+    {
+      "pos": 36,
+      "name": "E. BUCHMANN",
+      "team": "COFIDIS",
+      "value": "+16'30''"
+    },
+    {
+      "pos": 37,
+      "name": "Filippo Zana",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "+18'21''"
+    },
+    {
+      "pos": 38,
+      "name": "Pello Bilbao",
+      "team": "BAHRAIN VICTORIOUS",
+      "value": "+18'57''"
+    },
+    {
+      "pos": 39,
+      "name": "M. APARICIO MUÑOZ",
+      "team": "BURGOS-BURPELLET-BH",
+      "value": "+19'05''"
+    },
+    {
+      "pos": 40,
+      "name": "A. VALTER",
+      "team": "BAHRAIN VICTORIOUS",
+      "value": "+19'10''"
+    },
+    {
+      "pos": 41,
+      "name": "G. BENNETT",
+      "team": "NSN CYCLING TEAM",
+      "value": "+19'13''"
+    },
+    {
+      "pos": 42,
+      "name": "Luke Tuckwell",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "+19'35''"
+    },
+    {
+      "pos": 43,
+      "name": "R. THALMANN",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "+20'38''"
+    },
+    {
+      "pos": 44,
+      "name": "R. GARCIA",
+      "team": "MOVISTAR TEAM",
+      "value": "+21'19''"
+    },
+    {
+      "pos": 45,
+      "name": "B. ARMIRAIL",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "+23'18''"
+    },
+    {
+      "pos": 46,
+      "name": "S. KÜNG",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "+23'19''"
+    },
+    {
+      "pos": 47,
+      "name": "O. AULAR SANABRIA",
+      "team": "MOVISTAR TEAM",
+      "value": "+23'28''"
+    },
+    {
+      "pos": 48,
+      "name": "Finn Fisher-Black",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "+23'30''"
+    },
+    {
+      "pos": 49,
+      "name": "A. LAURANCE",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "+23'31''"
+    },
+    {
+      "pos": 50,
+      "name": "Cristián Rodríguez",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "+23'32''"
+    },
+    {
+      "pos": 51,
+      "name": "B. TRONCHON",
+      "team": "GROUPAMA-FDJ UNITED",
+      "value": "+23'36''"
+    },
+    {
+      "pos": 52,
+      "name": "C. CANAL BLANCO",
+      "team": "MOVISTAR TEAM",
+      "value": "+23'42''"
+    },
+    {
+      "pos": 53,
+      "name": "Santiago Buitrago",
+      "team": "BAHRAIN VICTORIOUS",
+      "value": "+23'43''"
+    },
+    {
+      "pos": 54,
+      "name": "P. MIQUEL DELGADO",
+      "team": "BAHRAIN VICTORIOUS",
+      "value": "+23'46''"
+    },
+    {
+      "pos": 55,
+      "name": "V. LANGELLOTTI",
+      "team": "XDS ASTANA TEAM",
+      "value": "+23'49''"
+    },
+    {
+      "pos": 56,
+      "name": "E. PALENI",
+      "team": "GROUPAMA-FDJ UNITED",
+      "value": "+23'50''"
+    },
+    {
+      "pos": 57,
+      "name": "D. GONZALEZ LOPEZ",
+      "team": "PINARELLO-Q36.5 PRO CYCLING TEAM",
+      "value": "+23'52''"
+    },
+    {
+      "pos": 58,
+      "name": "H. HOFSTETTER",
+      "team": "NSN CYCLING TEAM",
+      "value": "+23'53''"
+    },
+    {
+      "pos": 59,
+      "name": "G. LEEMREIZE",
+      "team": "TEAM PICNIC POSTNL",
+      "value": "+23'53''"
+    },
+    {
+      "pos": 60,
+      "name": "M. VADER",
+      "team": "PINARELLO-Q36.5 PRO CYCLING TEAM",
+      "value": "+23'54''"
+    },
+    {
+      "pos": 61,
+      "name": "Fredrik Dversnes",
+      "team": "UNO-X MOBILITY",
+      "value": "+23'57''"
+    },
+    {
+      "pos": 62,
+      "name": "V. BRAET",
+      "team": "LOTTO INTERMARCHE",
+      "value": "+24'00''"
+    },
+    {
+      "pos": 63,
+      "name": "A. COVI",
+      "team": "TEAM JAYCO ALULA",
+      "value": "+24'04''"
+    },
+    {
+      "pos": 64,
+      "name": "V. MADOUAS",
+      "team": "GROUPAMA-FDJ UNITED",
+      "value": "+24'08''"
+    },
+    {
+      "pos": 65,
+      "name": "C. ALLENO",
+      "team": "BURGOS-BURPELLET-BH",
+      "value": "+24'09''"
+    },
+    {
+      "pos": 66,
+      "name": "R. PORTER",
+      "team": "TEAM JAYCO ALULA",
+      "value": "+24'14''"
+    },
+    {
+      "pos": 67,
+      "name": "G. GAROFOLI",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "+24'17''"
+    },
+    {
+      "pos": 68,
+      "name": "Alberto Dainese",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "+24'18''"
+    },
+    {
+      "pos": 69,
+      "name": "R. MOLARD",
+      "team": "GROUPAMA-FDJ UNITED",
+      "value": "+24'22''"
+    },
+    {
+      "pos": 70,
+      "name": "Luca Van Boven",
+      "team": "LOTTO INTERMARCHE",
+      "value": "+24'25''"
+    },
+    {
+      "pos": 71,
+      "name": "Lorenzo Fortunato",
+      "team": "XDS ASTANA TEAM",
+      "value": "+24'36''"
+    },
+    {
+      "pos": 72,
+      "name": "A. ROMELE",
+      "team": "XDS ASTANA TEAM",
+      "value": "+24'38''"
+    },
+    {
+      "pos": 73,
+      "name": "L. WARBASSE",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "+24'38''"
+    },
+    {
+      "pos": 74,
+      "name": "J. BERNARD",
+      "team": "LIDL-TREK",
+      "value": "+24'44''"
+    },
+    {
+      "pos": 75,
+      "name": "J. BRENNAN",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "+24'51''"
+    },
+    {
+      "pos": 76,
+      "name": "Wout van Aert",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "+24'56''"
+    },
+    {
+      "pos": 77,
+      "name": "H. RENARD HAQUIN",
+      "team": "TEAM PICNIC POSTNL",
+      "value": "+24'57''"
+    },
+    {
+      "pos": 78,
+      "name": "H. MULUEBERHAN",
+      "team": "XDS ASTANA TEAM",
+      "value": "+24'57''"
+    },
+    {
+      "pos": 79,
+      "name": "L. ROTA",
+      "team": "LOTTO INTERMARCHE",
+      "value": "+25'03''"
+    },
+    {
+      "pos": 80,
+      "name": "Vincenzo Albanese",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "+25'05''"
+    },
+    {
+      "pos": 81,
+      "name": "Mauri Vansevenant",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "+25'16''"
+    },
+    {
+      "pos": 82,
+      "name": "C. LAPORTE",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "+25'19''"
+    },
+    {
+      "pos": 83,
+      "name": "F. WEISS",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "+25'19''"
+    },
+    {
+      "pos": 84,
+      "name": "Fabio Van den Bossche",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "+25'23''"
+    },
+    {
+      "pos": 85,
+      "name": "Thibau Nys",
+      "team": "LIDL-TREK",
+      "value": "+25'28''"
+    },
+    {
+      "pos": 86,
+      "name": "I. ROMEO ABAD",
+      "team": "MOVISTAR TEAM",
+      "value": "+25'30''"
+    },
+    {
+      "pos": 87,
+      "name": "Bryan Coquard",
+      "team": "COFIDIS",
+      "value": "+25'49''"
+    },
+    {
+      "pos": 88,
+      "name": "J. HAIG",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "+25'50''"
+    },
+    {
+      "pos": 89,
+      "name": "Rasmus Tiller",
+      "team": "UNO-X MOBILITY",
+      "value": "+25'56''"
+    },
+    {
+      "pos": 90,
+      "name": "C. SCOTSON",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "+25'57''"
+    },
+    {
+      "pos": 91,
+      "name": "X. AZPARREN IRURZUN",
+      "team": "PINARELLO-Q36.5 PRO CYCLING TEAM",
+      "value": "+26'04''"
+    },
+    {
+      "pos": 92,
+      "name": "M. CAMPRUBI PIJUAN",
+      "team": "PINARELLO-Q36.5 PRO CYCLING TEAM",
+      "value": "+26'04''"
+    },
+    {
+      "pos": 93,
+      "name": "S. MONIQUET",
+      "team": "COFIDIS",
+      "value": "+26'06''"
+    },
+    {
+      "pos": 94,
+      "name": "M. GAFFURI",
+      "team": "TEAM PICNIC POSTNL",
+      "value": "+26'08''"
+    },
+    {
+      "pos": 95,
+      "name": "P. MARTI SORIANO",
+      "team": "NSN CYCLING TEAM",
+      "value": "+26'08''"
+    },
+    {
+      "pos": 96,
+      "name": "N. SCHULTZ",
+      "team": "NSN CYCLING TEAM",
+      "value": "+26'30''"
+    },
+    {
+      "pos": 97,
+      "name": "A. LEKNESSUND",
+      "team": "UNO-X MOBILITY",
+      "value": "+26'32''"
+    },
+    {
+      "pos": 98,
+      "name": "L. KÄMNA",
+      "team": "LIDL-TREK",
+      "value": "+26'39''"
+    },
+    {
+      "pos": 99,
+      "name": "Jordi Meeus",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "+27'15''"
+    },
+    {
+      "pos": 100,
+      "name": "K. BOUWMAN",
+      "team": "TEAM JAYCO ALULA",
+      "value": "+27'22''"
+    },
+    {
+      "pos": 101,
+      "name": "P. KONRAD",
+      "team": "LIDL-TREK",
+      "value": "+27'24''"
+    },
+    {
+      "pos": 102,
+      "name": "J. LABROSSE",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "+27'28''"
+    },
+    {
+      "pos": 103,
+      "name": "L. ROULAND",
+      "team": "COFIDIS",
+      "value": "+28'09''"
+    },
+    {
+      "pos": 104,
+      "name": "R. ROCHAS",
+      "team": "GROUPAMA-FDJ UNITED",
+      "value": "+28'10''"
+    },
+    {
+      "pos": 105,
+      "name": "S. DALBY",
+      "team": "UNO-X MOBILITY",
+      "value": "+28'13''"
+    },
+    {
+      "pos": 106,
+      "name": "D. RAFFERTY",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "+28'28''"
+    },
+    {
+      "pos": 107,
+      "name": "J. FAURA ASENSIO",
+      "team": "BURGOS-BURPELLET-BH",
+      "value": "+29'26''"
+    },
+    {
+      "pos": 108,
+      "name": "D. DE LA CRUZ",
+      "team": "PINARELLO-Q36.5 PRO CYCLING TEAM",
+      "value": "+29'27''"
+    },
+    {
+      "pos": 109,
+      "name": "W. CALZONI",
+      "team": "PINARELLO-Q36.5 PRO CYCLING TEAM",
+      "value": "+29'32''"
+    },
+    {
+      "pos": 110,
+      "name": "Y. FEDOROV",
+      "team": "XDS ASTANA TEAM",
+      "value": "+29'40''"
+    },
+    {
+      "pos": 111,
+      "name": "H. WILKSCH",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "+29'45''"
+    },
+    {
+      "pos": 112,
+      "name": "Gal Glivar",
+      "team": "ALPECIN-PREMIER TECH",
+      "value": "+29'49''"
+    },
+    {
+      "pos": 113,
+      "name": "P. OURSELIN",
+      "team": "COFIDIS",
+      "value": "+29'52''"
+    },
+    {
+      "pos": 114,
+      "name": "Valentin Paret-Peintre",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "+29'59''"
+    },
+    {
+      "pos": 115,
+      "name": "R. ERMAKOV",
+      "team": "BAHRAIN VICTORIOUS",
+      "value": "+30'25''"
+    },
+    {
+      "pos": 116,
+      "name": "R. THOMPSON",
+      "team": "LOTTO INTERMARCHE",
+      "value": "+30'43''"
+    },
+    {
+      "pos": 117,
+      "name": "J. SHAW",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "+30'47''"
+    },
+    {
+      "pos": 118,
+      "name": "G. STEINHAUSER",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "+31'05''"
+    },
+    {
+      "pos": 119,
+      "name": "I. SOSA",
+      "team": "EQUIPO KERN PHARMA",
+      "value": "+31'07''"
+    },
+    {
+      "pos": 120,
+      "name": "T. DE JONG",
+      "team": "TEAM PICNIC POSTNL",
+      "value": "+31'15''"
+    },
+    {
+      "pos": 121,
+      "name": "Matevž Govekar",
+      "team": "BAHRAIN VICTORIOUS",
+      "value": "+31'35''"
+    },
+    {
+      "pos": 122,
+      "name": "F. WANDAHL",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "+31'43''"
+    },
+    {
+      "pos": 123,
+      "name": "Steffen De Schuyteneer",
+      "team": "LOTTO INTERMARCHE",
+      "value": "+32'02''"
+    },
+    {
+      "pos": 124,
+      "name": "João Almeida",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "+32'16''"
+    },
+    {
+      "pos": 125,
+      "name": "C. MACIAS ESTRADA",
+      "team": "BURGOS-BURPELLET-BH",
+      "value": "+32'22''"
+    },
+    {
+      "pos": 126,
+      "name": "F. BUSATTO",
+      "team": "ALPECIN-PREMIER TECH",
+      "value": "+32'34''"
+    },
+    {
+      "pos": 127,
+      "name": "Paul Double",
+      "team": "TEAM JAYCO ALULA",
+      "value": "+32'41''"
+    },
+    {
+      "pos": 128,
+      "name": "S. KRUIJSWIJK",
+      "team": "TEAM VISMA | LEASE A BIKE",
+      "value": "+32'45''"
+    },
+    {
+      "pos": 129,
+      "name": "Lindsay De Vylder",
+      "team": "ALPECIN-PREMIER TECH",
+      "value": "+32'47''"
+    },
+    {
+      "pos": 130,
+      "name": "L. CRAPS",
+      "team": "LOTTO INTERMARCHE",
+      "value": "+32'48''"
+    },
+    {
+      "pos": 131,
+      "name": "M. TJØTTA",
+      "team": "UNO-X MOBILITY",
+      "value": "+33'13''"
+    },
+    {
+      "pos": 132,
+      "name": "M. CORT NIELSEN",
+      "team": "UNO-X MOBILITY",
+      "value": "+33'21''"
+    },
+    {
+      "pos": 133,
+      "name": "Floris Van Tricht",
+      "team": "NSN CYCLING TEAM",
+      "value": "+34'05''"
+    },
+    {
+      "pos": 134,
+      "name": "M. GOGL",
+      "team": "ALPECIN-PREMIER TECH",
+      "value": "+34'06''"
+    },
+    {
+      "pos": 135,
+      "name": "Markel Beloki",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "+34'11''"
+    },
+    {
+      "pos": 136,
+      "name": "Mads Pedersen",
+      "team": "LIDL-TREK",
+      "value": "+34'22''"
+    },
+    {
+      "pos": 137,
+      "name": "K. VERMAERKE",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "+34'29''"
+    },
+    {
+      "pos": 138,
+      "name": "Ethan Hayter",
+      "team": "SOUDAL QUICK-STEP",
+      "value": "+34'34''"
+    },
+    {
+      "pos": 139,
+      "name": "Andreas Kron",
+      "team": "UNO-X MOBILITY",
+      "value": "+34'37''"
+    },
+    {
+      "pos": 140,
+      "name": "Alexey Lutsenko",
+      "team": "NSN CYCLING TEAM",
+      "value": "+34'42''"
+    },
+    {
+      "pos": 141,
+      "name": "M. KRETSCHY",
+      "team": "NSN CYCLING TEAM",
+      "value": "+34'43''"
+    },
+    {
+      "pos": 142,
+      "name": "G. MARTINEZ HUERTAS",
+      "team": "TEAM PICNIC POSTNL",
+      "value": "+34'49''"
+    },
+    {
+      "pos": 143,
+      "name": "I. ELOSEGUI MOMEÑE",
+      "team": "EQUIPO KERN PHARMA",
+      "value": "+34'55''"
+    },
+    {
+      "pos": 144,
+      "name": "J. ARCAS",
+      "team": "MOVISTAR TEAM",
+      "value": "+35'14''"
+    },
+    {
+      "pos": 145,
+      "name": "Jesús Herrada",
+      "team": "BURGOS-BURPELLET-BH",
+      "value": "+35'45''"
+    },
+    {
+      "pos": 146,
+      "name": "O. LE GAC",
+      "team": "GROUPAMA-FDJ UNITED",
+      "value": "+35'59''"
+    },
+    {
+      "pos": 147,
+      "name": "G. VERMEERSCH",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "+36'01''"
+    },
+    {
+      "pos": 148,
+      "name": "S. DE PESTEL",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "+36'05''"
+    },
+    {
+      "pos": 149,
+      "name": "Pablo Castrillo",
+      "team": "MOVISTAR TEAM",
+      "value": "+36'06''"
+    },
+    {
+      "pos": 150,
+      "name": "T. ROOSEN",
+      "team": "TEAM PICNIC POSTNL",
+      "value": "+36'09''"
+    },
+    {
+      "pos": 151,
+      "name": "A. MACKELLAR",
+      "team": "EF EDUCATION - EASYPOST",
+      "value": "+36'20''"
+    },
+    {
+      "pos": 152,
+      "name": "J. DIAZ GALLEGO",
+      "team": "BURGOS-BURPELLET-BH",
+      "value": "+36'39''"
+    },
+    {
+      "pos": 153,
+      "name": "H. HOULE",
+      "team": "ALPECIN-PREMIER TECH",
+      "value": "+36'49''"
+    },
+    {
+      "pos": 154,
+      "name": "J. MOSCA",
+      "team": "LIDL-TREK",
+      "value": "+36'50''"
+    },
+    {
+      "pos": 155,
+      "name": "S. SAMITIER SAMITIER",
+      "team": "COFIDIS",
+      "value": "+36'52''"
+    },
+    {
+      "pos": 156,
+      "name": "S. NORSGAARD",
+      "team": "LIDL-TREK",
+      "value": "+37'16''"
+    },
+    {
+      "pos": 157,
+      "name": "M. BRUSTENGA MASAGUE",
+      "team": "EQUIPO KERN PHARMA",
+      "value": "+37'20''"
+    },
+    {
+      "pos": 158,
+      "name": "M. WENZEL",
+      "team": "EQUIPO KERN PHARMA",
+      "value": "+37'23''"
+    },
+    {
+      "pos": 159,
+      "name": "A. CHAMBERLAIN",
+      "team": "DECATHLON CMA CGM TEAM",
+      "value": "+37'24''"
+    },
+    {
+      "pos": 160,
+      "name": "J. TARLING",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "+37'26''"
+    },
+    {
+      "pos": 161,
+      "name": "I. OLIVEIRA",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "+37'36''"
+    },
+    {
+      "pos": 162,
+      "name": "A. RENARD",
+      "team": "COFIDIS",
+      "value": "+37'39''"
+    },
+    {
+      "pos": 163,
+      "name": "B. TURNER",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "+37'43''"
+    },
+    {
+      "pos": 164,
+      "name": "L. HAMILTON",
+      "team": "NETCOMPANY INEOS CYCLING TEAM",
+      "value": "+37'54''"
+    },
+    {
+      "pos": 165,
+      "name": "Kaden Groves",
+      "team": "ALPECIN-PREMIER TECH",
+      "value": "+38'04''"
+    },
+    {
+      "pos": 166,
+      "name": "A. HELLEMOSE",
+      "team": "TEAM JAYCO ALULA",
+      "value": "+38'14''"
+    },
+    {
+      "pos": 167,
+      "name": "I. COBO CAYON",
+      "team": "EQUIPO KERN PHARMA",
+      "value": "+38'27''"
+    },
+    {
+      "pos": 168,
+      "name": "S. FERNANDEZ RODRIGUEZ",
+      "team": "BURGOS-BURPELLET-BH",
+      "value": "+38'29''"
+    },
+    {
+      "pos": 169,
+      "name": "M. PAASSCHENS",
+      "team": "BAHRAIN VICTORIOUS",
+      "value": "+38'34''"
+    },
+    {
+      "pos": 170,
+      "name": "J. SÜTTERLIN",
+      "team": "TEAM JAYCO ALULA",
+      "value": "+39'06''"
+    },
+    {
+      "pos": 171,
+      "name": "C. THORNLEY",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "+39'13''"
+    },
+    {
+      "pos": 172,
+      "name": "D. URIARTE BELZUNEGI",
+      "team": "EQUIPO KERN PHARMA",
+      "value": "+40'00''"
+    },
+    {
+      "pos": 173,
+      "name": "G. MOSCON",
+      "team": "RED BULL - BORA - HANSGROHE",
+      "value": "+41'28''"
+    },
+    {
+      "pos": 174,
+      "name": "A. KLUCKERS",
+      "team": "TUDOR PRO CYCLING TEAM",
+      "value": "+42'11''"
+    },
+    {
+      "pos": 175,
+      "name": "O. PEACE",
+      "team": "TEAM PICNIC POSTNL",
+      "value": "+42'59''"
+    },
+    {
+      "pos": 176,
+      "name": "D. VAN BEKKUM",
+      "team": "XDS ASTANA TEAM",
+      "value": "+43'10''"
+    },
+    {
+      "pos": 177,
+      "name": "D. NOVAK",
+      "team": "UAE TEAM EMIRATES XRG",
+      "value": "+43'19''"
+    },
+    {
+      "pos": 178,
+      "name": "C. HAMILTON",
+      "team": "TEAM PICNIC POSTNL",
+      "value": "+43'31''"
+    },
+    {
+      "pos": 179,
+      "name": "Hamish McKenzie",
+      "team": "TEAM JAYCO ALULA",
+      "value": "+45'39''"
+    },
+    {
+      "pos": 180,
+      "name": "Sente Sentjens",
+      "team": "ALPECIN-PREMIER TECH",
+      "value": "+54'04''"
+    }
+  ],
   "mountain": [],
   "sprint": [],
   "stage_winners": [
